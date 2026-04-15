@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1940年代 · 战火中的吕梁</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700&display=swap">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Serif SC', serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f5f0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, #8B4513 0%, #A0522D 100%);
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+            position: relative;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .back-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background: rgba(139, 69, 19, 0.9);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 30px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            z-index: 1001;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            font-weight: 500;
+        }
+
+        .back-button:hover {
+            background: rgba(160, 82, 45, 1);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .timeline-section {
+            padding: 80px 0;
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: #8B4513;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+            border-radius: 10px;
+        }
+
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            background-color: inherit;
+            width: 50%;
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            right: -13px;
+            background-color: white;
+            border: 4px solid #8B4513;
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .left {
+            left: 0;
+        }
+
+        .right {
+            left: 50%;
+        }
+
+        .left::before {
+            content: " ";
+            height: 0;
+            position: absolute;
+            top: 22px;
+            width: 0;
+            z-index: 1;
+            right: 30px;
+            border: medium solid #fff;
+            border-width: 10px 0 10px 10px;
+            border-color: transparent transparent transparent #fff;
+        }
+
+        .right::before {
+            content: " ";
+            height: 0;
+            position: absolute;
+            top: 22px;
+            width: 0;
+            z-index: 1;
+            left: 30px;
+            border: medium solid #fff;
+            border-width: 10px 10px 10px 0;
+            border-color: transparent #fff transparent transparent;
+        }
+
+        .right::after {
+            left: -13px;
+        }
+
+        .timeline-content {
+            padding: 20px 30px;
+            background-color: white;
+            position: relative;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .timeline-content:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+
+        .timeline-content h2 {
+            color: #8B4513;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+
+        .timeline-content h3 {
+            color: #A0522D;
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+
+        .timeline-content p {
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+
+        .timeline-content .highlight {
+            background-color: #f8f5f0;
+            padding: 15px;
+            border-left: 4px solid #8B4513;
+            margin: 15px 0;
+            border-radius: 0 5px 5px 0;
+        }
+
+        .timeline-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 15px 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .timeline-date {
+            font-weight: 600;
+            color: #8B4513;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        footer {
+            background: linear-gradient(135deg, #8B4513 0%, #A0522D 100%);
+            color: white;
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 50px;
+        }
+
+        @media screen and (max-width: 768px) {
+            .timeline::after {
+                left: 31px;
+            }
+
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+
+            .timeline-item::before {
+                left: 60px;
+                border: medium solid #fff;
+                border-width: 10px 10px 10px 0;
+                border-color: transparent #fff transparent transparent;
+            }
+
+            .left::after,
+            .right::after {
+                left: 18px;
+            }
+
+            .right {
+                left: 0%;
+            }
+
+            header h1 {
+                font-size: 2rem;
+            }
+
+            .back-button {
+                position: static;
+                display: inline-block;
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="javascript:history.back()" class="back-button"><i class="fas fa-arrow-left"></i> 返回上一页</a>
+        <div class="container">
+            <h1>1940年代 · 战火中的吕梁</h1>
+            <p>晋绥边区军民抗战史</p>
+        </div>
+    </header>
+
+    <section class="timeline-section">
+        <div class="container">
+            <div class="timeline">
+                <!-- 1937年 -->
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <div class="timeline-date">1937年</div>
+                        <h2>抗日战争全面爆发</h2>
+                        <p>1937年7月7日，卢沟桥事变爆发，抗日战争全面开始。吕梁地区成为晋绥边区的重要组成部分，是中国共产党领导的抗日根据地之一。</p>
+                        <div class="highlight">
+                            <p><strong>历史意义：</strong>吕梁地区成为华北敌后抗战的重要战略支点，为中国人民的抗日斗争做出了重要贡献。</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 1938年 -->
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <div class="timeline-date">1938年</div>
+                        <h2>晋绥边区成立</h2>
+                        <p>1938年，晋绥边区正式成立，贺龙任司令员，关向应任政治委员。吕梁地区成为晋绥边区的核心区域，承担着重要的抗日任务。</p>
+                        <img src="shikonghuixiang/晋绥边区成立.jpg" alt="晋绥边区成立">
+                    </div>
+                </div>
+
+                <!-- 1939年 -->
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <div class="timeline-date">1939年</div>
+                        <h2>吕梁军民开展游击战争</h2>
+                        <p>1939年，吕梁军民在党的领导下，广泛开展游击战争，打击日本侵略者。吕梁的山山水水成为了抗日游击战争的天然屏障。</p>
+                        <p>八路军120师在吕梁地区与日军进行了多次战斗，取得了显著的战果，极大地鼓舞了吕梁人民的抗日斗志。</p>
+                    </div>
+                </div>
+
+                <!-- 1940年 -->
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <div class="timeline-date">1940年</div>
+                        <h2>百团大战</h2>
+                        <p>1940年8月，百团大战爆发。吕梁地区的八路军部队积极参与，对日军的交通线和据点进行了有力的打击。</p>
+                        <div class="highlight">
+                            <p><strong>战役影响：</strong>百团大战沉重打击了日军的嚣张气焰，提高了中国人民的抗日信心，也使吕梁地区的抗日斗争进入了一个新的阶段。</p>
+                        </div>
+                        <img src="shikonghuixiang/百团大战.jpg" alt="百团大战">
+                    </div>
+                </div>
+
+                <!-- 1941年 -->
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <div class="timeline-date">1941年</div>
+                        <h2>艰苦的反"扫荡"斗争</h2>
+                        <p>1941年，日军对吕梁地区进行了大规模的"扫荡"，实行"三光政策"（烧光、杀光、抢光）。吕梁军民在极端困难的条件下，坚持开展游击战争。</p>
+                        <p>吕梁人民与八路军并肩作战，利用吕梁的山地优势，与日军进行了殊死搏斗，展现了不屈不挠的民族精神。</p>
+                    </div>
+                </div>
+
+                <!-- 1942年 -->
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <div class="timeline-date">1942年</div>
+                        <h2>大生产运动</h2>
+                        <p>1942年，为了克服经济困难，吕梁地区开展了大生产运动。军民齐动手，开荒种地，纺纱织布，自己动手，丰衣足食。</p>
+                        <p>大生产运动不仅解决了根据地的物资困难，也增强了军民的团结，为坚持长期抗战奠定了物质基础。</p>
+                        <img src="shikonghuixiang/大生产运动.jpg" alt="大生产运动">
+                    </div>
+                </div>
+
+                <!-- 1943年 -->
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <div class="timeline-date">1943年</div>
+                        <h2>反"扫荡"胜利</h2>
+                        <p>1943年，吕梁军民经过艰苦卓绝的斗争，取得了反"扫荡"的胜利。日军的嚣张气焰被彻底打垮，吕梁根据地得到了巩固和发展。</p>
+                        <div class="highlight">
+                            <p><strong>英雄事迹：</strong>在反"扫荡"斗争中，吕梁涌现出了许多英雄人物，他们用生命和鲜血谱写了一曲曲壮丽的抗日赞歌。</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 1944年 -->
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <div class="timeline-date">1944年</div>
+                        <h2>局部反攻</h2>
+                        <p>1944年，吕梁军民开始局部反攻，收复了许多被日军占领的地区。八路军的战斗力不断增强，日军在吕梁地区的控制范围逐渐缩小。</p>
+                        <p>吕梁人民的抗日热情高涨，积极支持八路军的反攻作战，为抗日战争的胜利做出了重要贡献。</p>
+                    </div>
+                </div>
+
+                <!-- 1945年 -->
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <div class="timeline-date">1945年</div>
+                        <h2>抗日战争胜利</h2>
+                        <p>1945年8月15日，日本宣布无条件投降。吕梁军民同全国人民一道，迎来了抗日战争的胜利。</p>
+                        <p>在八年抗战中，吕梁地区付出了巨大的牺牲，也为抗日战争的胜利做出了重要贡献。吕梁精神在战火中得到了锤炼和升华。</p>
+                        <img src="shikonghuixiang/抗日战争胜利.jpg" alt="抗日战争胜利">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>© 2025 吕梁精神传承计划 | 史料来源：《吕梁英雄传》、晋绥边区革命纪念馆</p>
+        </div>
+    </footer>
+
+    <script>
+        // 滚动动画效果
+        document.addEventListener('DOMContentLoaded', function() {
+            const timelineItems = document.querySelectorAll('.timeline-item');
+
+            function checkVisibility() {
+                timelineItems.forEach(item => {
+                    const rect = item.getBoundingClientRect();
+                    const isVisible = (rect.top <= window.innerHeight * 0.8 && rect.bottom >= 0);
+                    
+                    if (isVisible) {
+                        item.style.opacity = '1';
+                        item.style.transform = 'translateY(0)';
+                    }
+                });
+            }
+
+            // 初始设置
+            timelineItems.forEach(item => {
+                item.style.opacity = '0';
+                item.style.transform = 'translateY(50px)';
+                item.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            });
+
+            // 检查可见性
+            checkVisibility();
+
+            // 滚动时检查
+            window.addEventListener('scroll', checkVisibility);
+        });
+    </script>
+
+
+
+
+
+<script src="https://lf-cdn.coze.cn/obj/unpkg/flow-platform/chat-app-sdk/1.1.0-beta.0/libs/cn/index.js"></script>
+
+<script>
+  let chatClient = null;
+
+  function initChat() {
+    chatClient = new CozeWebSDK.WebChatClient({
+      config: {
+        bot_id: '7627810803755876388',
+        isIframe: false,
+        componentProps: {
+          title: '吕梁小助手'
+        },
+        auth: {
+          type: 'token',
+          token: 'pat_3RSssd47oQrXEy7uoUUplnrDIIDLNzedz380LSZzeLR2kEINLnJxpwcMdQlX4b7d',
+          onRefreshToken: function() {
+            return 'pat_3RSssd47oQrXEy7uoUUplnrDIIDLNzedz380LSZzeLR2kEINLnJxpwcMdQlX4b7d';
+          }
+        }
+      }
+    });
+  }
+
+  // 页面加载完成后自动初始化并显示智能助手
+  document.addEventListener('DOMContentLoaded', function() {
+    initChat();
+    if (chatClient) {
+      chatClient.show();  // 直接显示智能助手
+    }
+  });
+</script>
+
+
+
+
+
+
+
+</body>
+</html>

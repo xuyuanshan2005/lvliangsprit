@@ -1,0 +1,945 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>吕梁精神 · 英雄的土地</title>
+    
+    <!-- 引入 Swiper CSS 轮播图 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    
+    <!-- 引入 Font Awesome 图标库 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- 引入古风书法字体 -->
+    <link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=ZCOOL+XiaoWei&display=swap" rel="stylesheet">
+    
+    <!-- 引入 AOS 滚动动画库 -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- 引入高德地图 API (已注释) -->
+    <!-- <script type="text/javascript" src="https://webapi.amap.com/maps?v=2.0&key=0b85a46c4c6e4a39a748e2d18129a28b"></script> -->
+    <!-- <script type="text/javascript" src="https://webapi.amap.com/ui/1.0/main.js"></script> -->
+    
+    <!-- 引入自定义样式 -->
+    <link rel="stylesheet" href="style.css">
+    
+    <style>
+        .spirit-cards {
+            display: grid !important;
+            grid-template-columns: repeat(3, 1fr) !important;
+            gap: 30px !important;
+            margin-top: 40px !important;
+        }
+        
+        .spirit-card {
+            width: 100% !important;
+            box-sizing: border-box !important;
+            background-size: cover !important;
+            background-position: center !important;
+            border-radius: 12px !important;
+            padding: 60px 20px !important;
+            text-align: center !important;
+            min-height: 320px !important;
+            position: relative !important;
+        }
+        
+        @media (max-width: 768px) {
+            .spirit-cards {
+                grid-template-columns: 1fr !important;
+            }
+        }
+    </style>
+</head>
+
+
+<body>
+    
+
+    <!-- 毛玻璃导航栏 -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-mountain"></i>
+                <span>吕梁精神</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home">首页</a></li>
+                <li><a href="#spirit">精神内涵</a></li>
+                <li><a href="#stories">英雄故事</a></li>
+                <li><a href="#timeline">时空回响</a></li>
+                <li><a href="#culture">吕梁文化</a></li>
+                <li><a href="#tourism">吕梁文旅</a></li>
+                <li><a href="#newera">时代新风</a></li>
+            </ul>
+            <div class="auth-buttons">
+                <div class="search-container">
+                    <input type="text" id="userSearch" placeholder="输入用户名搜索">
+                    <button id="searchBtn">搜索</button>
+                </div>
+                <button id="loginBtn" class="auth-btn">登录</button>
+                <button id="registerBtn" class="auth-btn">注册</button>
+                <div id="userInfo" class="user-info">
+                    <span id="welcomeMsg"></span>
+                    <button id="logoutBtn" class="auth-btn">退出</button>
+                </div>
+            </div>
+            <div class="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 首屏：全屏轮播图 -->
+    <section id="home" class="hero">
+        <div class="swiper heroSwiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide" style="background-image: url('images/hero1.jpg');">
+                    <div class="hero-overlay"></div>
+                    <div class="hero-content">
+                        <h1 data-aos="fade-up">吕梁精神</h1>
+                        <p data-aos="fade-up" data-aos-delay="200">对党忠诚 · 无私奉献 · 敢于斗争</p>
+                    </div>
+                </div>
+                <div class="swiper-slide" style="background-image: url('images/hero2.jpg');">
+                    <div class="hero-overlay"></div>
+                    <div class="hero-content">
+                        <h1>英雄的土地</h1>
+                        <p>这里，每一寸山河都镌刻着信仰</p>
+                    </div>
+                </div>
+                <div class="swiper-slide" style="background-image: url('images/hero3.jpg');">
+                    <div class="hero-overlay"></div>
+                    <div class="hero-content">
+                        <h1>今日吕梁</h1>
+                        <p>精神永续，山河焕新</p>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>
+    </section>
+
+    <!-- 模块1：精神内涵 -->
+    <section id="spirit" class="spirit">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">吕梁精神</h2>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">巍巍吕梁山，铮铮英雄魂</p>
+            <div class="spirit-cards">
+                <!-- 精神内涵卡片将通过JavaScript动态加载 -->
+            </div>
+        </div>
+    </section>
+
+    <!-- 模块2：英雄故事 -->
+    <section id="stories" class="stories">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">英雄故事</h2>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">铭记，是为了更好地前行</p>
+            <div class="stories-grid">
+                <!-- 英雄卡片将通过 JavaScript 动态加载 -->
+            </div>
+            
+            <script>
+                function loadHeroStories() {
+                    const grid = document.querySelector('.stories-grid');
+                    if (!grid || typeof heroDetails === 'undefined') return;
+
+                    const delays = [200, 300, 200, 300, 400, 500];
+                    grid.innerHTML = Object.keys(heroDetails).map((key, index) => {
+                        const hero = heroDetails[key];
+                        return `
+                            <div class="story-card" data-aos="flip-left" data-aos-delay="${delays[index]}" onclick="openHeroModal('${key}')">
+                                <div class="story-img" style="background-image: url('${hero.gridImage}'); background-size: cover; background-position: center; min-height: 200px;"></div>
+                                <div class="story-content">
+                                    <h3>${hero.name}</h3>
+                                    <p class="story-sub">${hero.subtitle.startsWith('“') ? hero.subtitle : `“${hero.subtitle}”`}</p>
+                                    <p>${hero.summary}</p>
+                                    <div class="story-quote">“${hero.quote}”</div>
+                                    <div class="story-read-more">查看详情 <i class="fas fa-arrow-right"></i></div>
+                                </div>
+                            </div>
+                        `;
+                    }).join('');
+                }
+
+                document.addEventListener('DOMContentLoaded', () => {
+                    const checkHeroDetails = setInterval(() => {
+                        if (typeof heroDetails !== 'undefined') {
+                            loadHeroStories();
+                            clearInterval(checkHeroDetails);
+                        }
+                    }, 50);
+                });
+            </script>
+        </div>
+    </section>
+
+    <!-- 英雄详情模态框 -->
+    <div id="heroModal" class="hero-modal">
+        <div class="hero-modal-content">
+            <span class="hero-modal-close" onclick="closeHeroModal()">&times;</span>
+            <div id="heroModalBody" class="hero-modal-body">
+                <!-- 动态内容将在这里显示 -->
+            </div>
+        </div>
+    </div>
+
+    <!-- 模块3：时空回响（今昔对比） -->
+    <section id="timeline" class="timeline">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">时空回响</h2>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">从战火硝烟到盛世华章</p>
+            <div class="compare-wrapper" data-aos="zoom-in" data-aos-delay="200">
+                <div class="compare-container" style="background-image: url('images/shikonghuixiang.jpg'); background-size: cover; background-position: center; min-height: 300px; display: flex; border-radius: 10px; overflow: hidden;">
+                    <a href="timeline.html" class="compare-left" style="flex: 1; position: relative; cursor: pointer;">
+                        <div class="compare-overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); display: flex; align-items: flex-end;">
+                            <div class="compare-label" style="padding: 15px; color: white; font-size: 18px; font-weight: bold;">1940年代 · 战火中的吕梁</div>
+                        </div>
+                    </a>
+                    <div class="compare-divider" style="width: 2px; background: rgba(255,255,255,0.5);"></div>
+                    <a href="modern-lvliang.html" class="compare-right" style="flex: 1; position: relative; cursor: pointer;">
+                        <div class="compare-overlay" style="position: absolute; top: 0; right: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); display: flex; align-items: flex-end;">
+                            <div class="compare-label" style="padding: 15px; color: white; font-size: 18px; font-weight: bold;">今日 · 现代化新吕梁</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="timeline-stats" data-aos="fade-up" data-aos-delay="300">
+                <div class="stat">
+                    <h4>1937-1945</h4>
+                    <p>晋绥边区军民抗战史</p>
+                </div>
+                <div class="stat">
+                    <h4>100+</h4>
+                    <p>可考英雄人物</p>
+                </div>
+                <div class="stat">
+                    <h4>2025</h4>
+                    <p>精神永续的时代</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- 模块5：吕梁文化 -->
+    <section id="culture" class="culture">
+        <!-- 全屏背景视频 -->
+        <video class="culture-video" autoplay muted loop>
+            <source src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_video?prompt=Lvliang%20mountain%20landscape%20traditional%20Chinese%20culture&video_size=720p" type="video/mp4">
+            您的浏览器不支持视频标签。
+        </video>
+        
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">吕梁文化</h2>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">千年文脉，薪火相传</p>
+            
+            <div class="culture-container">
+                <!-- 左侧侧边栏 -->
+                <div class="culture-sidebar">
+                    <div class="sidebar-track" id="sidebarTrack">
+                        <div class="sidebar-item active" data-target="history">
+                            <div class="item-circle">
+                                <div class="circle-inner" style="background-image: url('https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=Lvliang%20ancient%20history%20cultural%20heritage&image_size=square');"></div>
+                            </div>
+                            <span>历史文化</span>
+                        </div>
+                        <div class="sidebar-item" data-target="folk">
+                            <div class="item-circle">
+                                <div class="circle-inner" style="background-image: url('https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=Lvliang%20folk%20culture%20traditional%20festival&image_size=square');"></div>
+                            </div>
+                            <span>民俗文化</span>
+                        </div>
+                        <div class="sidebar-item" data-target="food">
+                            <div class="item-circle">
+                                <div class="circle-inner" style="background-image: url('https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=Lvliang%20traditional%20food%20noodles&image_size=square');"></div>
+                            </div>
+                            <span>饮食文化</span>
+                        </div>
+                        <div class="sidebar-item" data-target="literature">
+                            <div class="item-circle">
+                                <div class="circle-inner" style="background-image: url('https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=Lvliang%20literature%20books%20Chinese%20style&image_size=square');"></div>
+                            </div>
+                            <span>文学作品</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 右侧内容区 -->
+                <div class="culture-content-area">
+                    <div class="content-item active" id="history">
+                        <h3>历史文化</h3>
+                        <div class="content-text">
+                            <p>吕梁历史悠久，文化底蕴深厚。早在新石器时代，这里就有人类活动的痕迹。春秋时期，吕梁属晋国，是晋文化的重要发祥地之一。</p>
+                            <p>吕梁地区保留了大量的历史文化遗产，如柳林县的明清古街、临县的碛口古镇等，这些都是吕梁历史文化的重要见证。</p>
+                        </div>
+                        <div class="image-gallery">
+                            <div class="gallery-item">
+                                <img src="lvliangculture/lishiwenhua/吕梁山.jpg" alt="吕梁山">
+                                <div class="image-name">吕梁山</div>
+                            </div>
+                            <div class="gallery-item">
+                                <img src="lvliangculture/lishiwenhua/碛口古镇.jpg" alt="碛口古镇">
+                                <div class="image-name">碛口古镇</div>
+                            </div>
+                            <div class="gallery-item">
+                                <img src="lvliangculture/lishiwenhua/玄中寺.jpg" alt="玄中寺">
+                                <div class="image-name">玄中寺</div>
+                            </div>
+                            <div class="gallery-item">
+                                <img src="lvliangculture/lishiwenhua/窑洞.jpg" alt="窑洞">
+                                <div class="image-name">窑洞</div>
+                            </div>
+                            <div class="gallery-item">
+                                <img src="lvliangculture/lishiwenhua/民居.jpg" alt="民居">
+                                <div class="image-name">民居</div>
+                            </div>
+                        </div>
+                        <div class="scroll-indicator">
+                            <span class="active"></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
+                    <div class="content-item" id="folk">
+                        <h3>民俗文化</h3>
+                        <p>吕梁的民俗文化丰富多彩，包括民间戏曲、民间音乐、民间舞蹈等。其中，柳林盘子会、临县伞头秧歌、孝义皮影戏等都是国家级非物质文化遗产。</p>
+                        <p>吕梁的传统节日也独具特色，如春节、元宵节、清明节等都有独特的庆祝方式，体现了吕梁人民的生活智慧和文化传统。</p>
+                        <div class="card-container">
+                            <div class="card">
+                                <div class="card-image">
+                                    <img src="lvliangculture/minsuwenhua/柳林盘子会.jpg" alt="柳林盘子会">
+                                </div>
+                                <div class="card-content">
+                                    <h4>柳林盘子会</h4>
+                                    <p>柳林盘子会是国家级非遗，以木雕神龛“盘子”为核心，集祭祀、秧歌、社火于一体，是当地元宵最盛大的民俗活动。</p>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-image">
+                                    <img src="lvliangculture/minsuwenhua/临县伞头秧歌.jpg" alt="临县伞头秧歌">
+                                </div>
+                                <div class="card-content">
+                                    <h4>临县伞头秧歌</h4>
+                                    <p>临县伞头秧歌为国家级非遗，由伞头即兴编词领唱，众人载歌载舞，风格粗犷豪放，是晋西极具代表性的民间歌舞。</p>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-image">
+                                    <img src="lvliangculture/minsuwenhua/孝义皮影戏.jpg" alt="孝义皮影戏">
+                                </div>
+                                <div class="card-content">
+                                    <h4>孝义皮影戏</h4>
+                                    <p>孝义皮影戏历史悠久，属国家级非遗，以驴皮刻制影人，配合唱腔与器乐演绎故事，是中国皮影重要流派。</p>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-image">
+                                    <img src="lvliangculture/minsuwenhua/岚县面塑.jpg" alt="岚县面塑">
+                                </div>
+                                <div class="card-content">
+                                    <h4>岚县面塑</h4>
+                                    <p>岚县面塑又称寒燕儿，以面粉捏制花鸟、人物等造型，色彩鲜艳，多用于清明祭祀与祈福，是极具乡土气息的民间技艺。</p>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-image">
+                                    <img src="lvliangculture/minsuwenhua/中阳剪纸.jpg" alt="中阳剪纸">
+                                </div>
+                                <div class="card-content">
+                                    <h4>中阳剪纸</h4>
+                                    <p>中阳剪纸为国家级非遗，题材多取自民俗生活与黄土风情，刀法简练粗犷，风格质朴，是吕梁民间美术的典型代表。</p>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-image">
+                                    <img src="lvliangculture/minsuwenhua/石楼打铁花.jpg" alt="石楼打铁花">
+                                </div>
+                                <div class="card-content">
+                                    <h4>石楼打铁花</h4>
+                                    <p>石楼打铁花是传统民间焰火技艺，将高温铁水击洒空中迸发火花，场面壮观震撼，多在春节元宵期间表演祈福。</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="content-item" id="food">
+                        <h3>饮食文化</h3>
+                        <div class="content-text">
+                            <p>吕梁的饮食文化源远流长，以面食为主，口味偏咸香。特色美食有柳林碗团、临县豆腐、孝义火烧、文水焖面等。</p>
+                            <p>吕梁的酒文化也很发达，杏花村汾酒是中国著名的白酒品牌，有着悠久的历史和深厚的文化底蕴。</p>
+                        </div>
+                        <div class="image-gallery">
+                            <div class="gallery-item">
+                                <img src="lvliangculture/yinshiwenhua/柳林碗托.jpeg" alt="柳林碗托">
+                                <div class="image-name">柳林碗托</div>
+                            </div>
+                            <div class="gallery-item">
+                                <img src="lvliangculture/yinshiwenhua/孝义火烧.png" alt="孝义火烧">
+                                <div class="image-name">孝义火烧</div>
+                            </div>
+                            <div class="gallery-item">
+                                <img src="lvliangculture/yinshiwenhua/临县大烩菜.jpg" alt="临县大烩菜">
+                                <div class="image-name">临县大烩菜</div>
+                            </div>
+                            <div class="gallery-item">
+                                <img src="lvliangculture/yinshiwenhua/岚县土豆宴.jpeg" alt="岚县土豆宴">
+                                <div class="image-name">岚县土豆宴</div>
+                            </div>
+                            <div class="gallery-item">
+                                <img src="lvliangculture/yinshiwenhua/炒恶.jpg" alt="炒恶">
+                                <div class="image-name">炒恶</div>
+                            </div>
+                        </div>
+                        <div class="scroll-indicator">
+                            <span class="active"></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
+                    <div class="content-item" id="literature">
+                        <h3>文学作品</h3>
+                        <p>吕梁的文学作品丰富多彩，其中最著名的是马烽和西戎合著的《吕梁英雄传》，这部小说以吕梁山区为背景，反映了晋绥边区人民抗击日本侵略者的英勇斗争。</p>
+                        <p>此外，马烽的《汾水长流》、贾平凹的《吕梁笔记》、张平的《英雄的土地》等作品也都以吕梁为背景，展现了吕梁人民的精神风貌和生活变迁。</p>
+                        <div class="card-container">
+                            <div class="card">
+                                <div class="card-image">
+                                    <img src="lvliangculture/wenxiuzuoping/吕梁英雄传.jpg" alt="吕梁英雄传">
+                                </div>
+                                <div class="card-content">
+                                    <h4>《吕梁英雄传》</h4>
+                                    <p>马烽、西戎合著的经典革命小说，以吕梁山抗日根据地为背景，讲述康家寨农民组成民兵，在党的领导下与日伪势力顽强斗争的故事，塑造了众多朴实勇敢的乡村英雄形象，是反映晋西抗战的重要文学作品。</p>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-image">
+                                    <img src="lvliangculture/wenxiuzuoping/汾水长流.jpg" alt="汾水长流">
+                                </div>
+                                <div class="card-content">
+                                    <h4>《汾水长流》</h4>
+                                    <p>胡正创作的现实主义乡土小说，聚焦解放初期汾河流域农村，展现农业合作化进程中的矛盾与变迁，刻画基层干部与农民群像，语言朴实接地气，具有鲜明的时代印记与地域特色。</p>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-image">
+                                    <img src="lvliangculture/wenxiuzuoping/《厚土 —— 吕梁山印象》.jpg" alt="厚土 —— 吕梁山印象">
+                                </div>
+                                <div class="card-content">
+                                    <h4>《厚土 —— 吕梁山印象》</h4>
+                                    <p>李锐的短篇小说集，以冷峻深沉的笔触描绘吕梁山区普通人的生存境遇，书写黄土高原的苦难、坚韧与人性力量，文风质朴厚重，深刻展现吕梁山的地域精神与文化底色。</p>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-image">
+                                    <img src="lvliangculture/wenxiuzuoping/《沐月记》.jpg" alt="沐月记">
+                                </div>
+                                <div class="card-content">
+                                    <h4>《沐月记》</h4>
+                                    <p>以吕梁离石乡土为背景的长篇小说，将抗战烽火与家族命运交织，在动荡岁月里勾勒民族气节与人间温情，融入浓郁的吕梁地域风情，曾荣获赵树理文学奖。</p>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-image">
+                                    <img src="lvliangculture/wenxiuzuoping/《英雄的土地》.jpg" alt="英雄的土地">
+                                </div>
+                                <div class="card-content">
+                                    <h4>《英雄的土地》</h4>
+                                    <p>主题纪实文学作品，回顾吕梁革命历史与红色征程，歌颂战争年代与建设时期的英雄人物，记录这片红色土地的奋斗历程，传承吕梁精神与家国情怀。</p>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-image">
+                                    <img src="lvliangculture/wenxiuzuoping/《英雄的土地》.jpg" alt="吕梁风情">
+                                </div>
+                                <div class="card-content">
+                                    <h4>《吕梁风情》</h4>
+                                    <p>地域文化散文集，全方位记录吕梁的山水风光、民俗非遗、历史遗迹与百姓生活，兼具纪实性与文学性，生动呈现晋西黄土高原独特的人文风貌与乡土韵味。</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 模块6：吕梁文旅 -->
+    <section id="tourism" class="tourism">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">吕梁文旅</h2>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">红色热土，魅力吕梁</p>
+            <div class="tourism-map-container" data-aos="fade-up" data-aos-delay="200">
+                <div class="map-wrapper">
+                    <!-- 静态图片地图容器 -->
+                    <div id="lvliangMap" class="image-map-container">
+                        <div class="image-map-wrapper" id="imageMapWrapper">
+                            <img id="mapImage" src="images/lvliang_map.jpg" alt="吕梁市行政区划地图" usemap="#lvliangMapAreas" draggable="false">
+                            <!-- 13个区县热区 -->
+                            <map name="lvliangMapAreas" id="lvliangMapAreas">
+                                <!-- 离石区 - 中心位置 -->
+                                <area shape="poly" coords="280,280,320,260,350,280,340,320,300,330,270,310" 
+                                      data-district="离石区" alt="离石区" title="离石区">
+                                <!-- 孝义市 - 南部偏西 -->
+                                <area shape="poly" coords="220,380,280,360,310,390,290,430,240,420,200,400" 
+                                      data-district="孝义市" alt="孝义市" title="孝义市">
+                                <!-- 汾阳市 - 南部偏东 -->
+                                <area shape="poly" coords="320,360,380,340,410,370,390,420,340,410,310,390" 
+                                      data-district="汾阳市" alt="汾阳市" title="汾阳市">
+                                <!-- 文水县 - 东南部 -->
+                                <area shape="poly" coords="400,320,460,300,490,330,470,380,420,370,390,340" 
+                                      data-district="文水县" alt="文水县" title="文水县">
+                                <!-- 交城县 - 东部 -->
+                                <area shape="poly" coords="420,240,480,220,510,250,490,300,440,290,410,260" 
+                                      data-district="交城县" alt="交城县" title="交城县">
+                                <!-- 兴县 - 北部偏西 -->
+                                <area shape="poly" coords="120,80,180,60,210,90,190,140,140,130,100,110" 
+                                      data-district="兴县" alt="兴县" title="兴县">
+                                <!-- 临县 - 西部 -->
+                                <area shape="poly" coords="80,180,140,160,170,190,150,240,100,230,60,210" 
+                                      data-district="临县" alt="临县" title="临县">
+                                <!-- 柳林县 - 西南部 -->
+                                <area shape="poly" coords="140,280,200,260,230,290,210,340,160,330,120,310" 
+                                      data-district="柳林县" alt="柳林县" title="柳林县">
+                                <!-- 石楼县 - 最南部 -->
+                                <area shape="poly" coords="100,420,160,400,190,430,170,480,120,470,80,450" 
+                                      data-district="石楼县" alt="石楼县" title="石楼县">
+                                <!-- 岚县 - 北部偏东 -->
+                                <area shape="poly" coords="280,100,340,80,370,110,350,160,300,150,270,130" 
+                                      data-district="岚县" alt="岚县" title="岚县">
+                                <!-- 方山县 - 东北部 -->
+                                <area shape="poly" coords="360,160,420,140,450,170,430,220,380,210,350,190" 
+                                      data-district="方山县" alt="方山县" title="方山县">
+                                <!-- 中阳县 - 中部偏西 -->
+                                <area shape="poly" coords="200,220,260,200,290,230,270,280,220,270,190,250" 
+                                      data-district="中阳县" alt="中阳县" title="中阳县">
+                                <!-- 交口县 - 南部 -->
+                                <area shape="poly" coords="180,340,240,320,270,350,250,400,200,390,170,370" 
+                                      data-district="交口县" alt="交口县" title="交口县">
+                            </map>
+                            <!-- 标记点容器 -->
+                            <div id="mapMarkers" class="map-markers"></div>
+                            <!-- 区县标签容器 -->
+                            <div id="districtLabels" class="district-labels"> 
+     <div class="district-label" data-district="兴县" style="left: 240px; top: 140px;">兴县</div> 
+     <div class="district-label" data-district="岚县" style="left: 340px; top: 160px;">岚县</div> 
+     <div class="district-label" data-district="方山县" style="left: 300px; top: 220px;">方山县</div> 
+     <div class="district-label" data-district="临县" style="left: 200px; top: 220px;">临县</div> 
+     <div class="district-label" data-district="中阳县" style="left: 260px; top: 380px;">中阳县</div> 
+     <div class="district-label" data-district="离石区" style="left: 300px; top: 350px;">离石区</div> 
+     <div class="district-label" data-district="柳林县" style="left: 200px; top: 350px;">柳林县</div> 
+     <div class="district-label" data-district="石楼县" style="left: 180px; top: 450px;">石楼县</div> 
+     <div class="district-label" data-district="交口县" style="left: 270px; top: 460px;">交口县</div> 
+     <div class="district-label" data-district="孝义市" style="left: 340px; top: 450px;">孝义市</div> 
+     <div class="district-label" data-district="汾阳市" style="left: 360px; top: 400px;">汾阳市</div> 
+     <div class="district-label" data-district="交城县" style="left: 400px; top: 300px;">交城县</div> 
+     <div class="district-label" data-district="文水县" style="left: 400px; top: 360px;">文水县</div> 
+                            </div>
+                        </div>
+                        <div class="map-caption">吕梁市行政区划地图</div>
+                    </div>
+                </div>
+                <div class="venue-list-wrapper">
+                    <h3 class="venue-list-title">文化场馆列表</h3>
+                    <div id="venueList" class="venue-list">
+                        <!-- 场馆列表将动态生成 -->
+                        <p class="venue-list-placeholder">点击地图上的区域查看场馆列表</p>
+                    </div>
+                    <div id="venueDetail" class="venue-detail">
+                        <!-- 场馆详情将动态生成 -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- 模块8：时代新风 -->
+    <section id="newera" class="newera">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">时代新风</h2>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">文化传承，与时俱进</p>
+            <div class="accordion-container">
+                <div class="accordion-wrapper">
+                    <div class="accordion-card active" data-index="0" data-link="wenhuachuancheng.html">
+                        <div class="accordion-img" style="background-image: url('https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=吕梁 文化传承 非物质文化遗产&image_size=landscape_4_3');"></div>
+                        <div class="accordion-content">
+                            <h3>文化传承</h3>
+                            <p>吕梁市高度重视文化传承工作，通过建立非物质文化遗产保护中心、举办文化节等方式，积极保护和传承吕梁的传统文化。同时，吕梁还加强了对历史文化遗产的保护和修复，让古老的文化遗产在新时代焕发出新的活力。</p>
+                            <p>吕梁的学校教育也注重传统文化的传承，将吕梁的历史文化、民俗文化等纳入教学内容，培养学生的文化认同感和自豪感。</p>
+                            <a href="wenhuachuancheng.html?card=0" class="card-link">查看更多 <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="accordion-card" data-index="1" data-link="shidaichuangxin.html">
+                        <div class="accordion-img" style="background-image: url('https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=吕梁 时代创新 文化创意&image_size=landscape_4_3');"></div>
+                        <div class="accordion-content">
+                            <h3>时代创新</h3>
+                            <p>在传承传统文化的同时，吕梁也积极推动文化创新。通过将传统文化与现代科技相结合，推出了一系列文化创意产品，如吕梁特色的文创产品、数字博物馆等，让传统文化以新的形式展现给世人。</p>
+                            <p>吕梁还积极发展文化产业，通过举办文化旅游节、打造文化品牌等方式，推动文化与经济的融合发展，为吕梁的经济社会发展注入新的动力。</p>
+                            <a href="shidaichuangxin.html?card=1" class="card-link">查看更多 <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="accordion-card" data-index="2" data-link="jingshenhongyang.html">
+                        <div class="accordion-img" style="background-image: url('https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=吕梁精神 弘扬 教育活动&image_size=landscape_4_3');"></div>
+                        <div class="accordion-content">
+                            <h3>精神弘扬</h3>
+                            <p>吕梁精神是吕梁人民的宝贵精神财富，在新时代仍然具有重要的现实意义。吕梁通过各种方式弘扬吕梁精神，如举办吕梁精神研讨会、开展吕梁精神主题教育活动等，让吕梁精神在新时代得到传承和发扬。</p>
+                            <p>吕梁精神也激励着吕梁人民在新时代不断前进，为实现中华民族伟大复兴的中国梦而努力奋斗。吕梁的发展成就充分证明了吕梁精神的强大生命力和时代价值。</p>
+                            <a href="jingshenhongyang.html?card=2" class="card-link">查看更多 <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // 手风琴式轮播卡片效果
+        function initAccordion() {
+            try {
+                const accordionCards = document.querySelectorAll('.accordion-card');
+                
+                if (accordionCards.length === 0) {
+                    return;
+                }
+                
+                accordionCards.forEach(card => {
+                    // 阻止卡片链接的默认行为，先处理展开效果
+                    const cardLink = card.querySelector('.card-link');
+                    if (cardLink) {
+                        cardLink.addEventListener('click', function(e) {
+                            e.preventDefault();
+                            const href = this.getAttribute('href');
+                            if (href && href !== '#') {
+                                setTimeout(() => {
+                                    window.location.href = href;
+                                }, 300);
+                            }
+                        });
+                    }
+                    
+                    // 处理卡片点击事件
+                    card.addEventListener('click', function(e) {
+                        // 如果点击的是链接，不处理（已经在上面处理了）
+                        if (e.target.closest('.card-link')) {
+                            return;
+                        }
+                        
+                        // 移除所有卡片的active类
+                        accordionCards.forEach(c => c.classList.remove('active'));
+                        // 添加当前卡片的active类
+                        this.classList.add('active');
+                        
+
+                    });
+                });
+                
+
+            } catch (error) {
+            }
+        }
+
+        // 页面加载完成后初始化
+        function initPage() {
+            initAccordion();
+            
+            // 检查是否有存储的活动卡片
+            const activeCard = localStorage.getItem('activeCard');
+            if (activeCard !== null) {
+                // 激活对应卡片
+                const cards = document.querySelectorAll('.accordion-card');
+                if (cards[activeCard]) {
+                    // 移除所有卡片的active类
+                    cards.forEach(card => card.classList.remove('active'));
+                    // 添加当前卡片的active类
+                    cards[activeCard].classList.add('active');
+                    // 清除存储的卡片索引
+                    localStorage.removeItem('activeCard');
+                }
+            }
+        }
+        
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initPage);
+        } else {
+            initPage();
+        }
+    </script>
+
+    <!-- 页脚 + 寄语墙 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-left">
+                    <h3><i class="fas fa-mountain"></i> 吕梁精神</h3>
+                    <p>巍巍吕梁山，铮铮英雄魂。<br>铭记历史，传承精神，开创未来。</p>
+                    <div class="social-links">
+                    </div>
+                </div>
+                <div class="footer-right">
+                    <h4>留言寄语</h4>
+                    <p>分享你心中的吕梁精神</p>
+                    <form id="messageForm">
+                        <textarea id="message" rows="3" placeholder="写下你的感悟..." required></textarea>
+                        <button type="submit">留下寄语 <i class="fas fa-paper-plane"></i></button>
+                    </form>
+                    <div id="messageBarrage" class="message-barrage">
+                        <div class="barrage-container">
+                            <div class="barrage-row" id="barrageRow1"></div>
+                            <div class="barrage-row" id="barrageRow2"></div>
+                            <div class="barrage-row" id="barrageRow3"></div>
+                            <div class="barrage-row" id="barrageRow4"></div>
+                            <div class="barrage-row" id="barrageRow5"></div>
+                            <div class="barrage-row" id="barrageRow6"></div>
+                            <div class="barrage-row" id="barrageRow7"></div>
+                            <div class="barrage-row" id="barrageRow8"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 吕梁精神传承计划 | 史料来源：《吕梁英雄传》、晋绥边区革命纪念馆 | 仅用于学习交流</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- 登录模态框 -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>登录</h3>
+                <span class="close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <form id="loginForm">
+                    <div class="form-group">
+                        <label for="loginUsername">用户名</label>
+                        <input type="text" id="loginUsername" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="loginPassword">密码</label>
+                        <input type="password" id="loginPassword" required>
+                    </div>
+                    <button type="submit" class="btn">登录</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 注册模态框 -->
+    <div id="registerModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>注册</h3>
+                <span class="close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <form id="registerForm">
+                    <div class="form-group">
+                        <label for="registerUsername">用户名</label>
+                        <input type="text" id="registerUsername" required onblur="checkUsernameAvailability()">
+                        <div id="usernameFeedback" style="font-size: 12px; margin-top: 5px;"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="registerPassword">密码</label>
+                        <input type="password" id="registerPassword" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="confirmPassword">确认密码</label>
+                        <input type="password" id="confirmPassword" required>
+                    </div>
+                    <button type="submit" class="btn">注册</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- 引入 JS 库 -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="script.js"></script>
+    
+<!-- 我的主页视图 -->
+    <div id="profileView" class="profile-view" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); z-index: 9999; overflow-y: auto;">
+        <div class="container" style="max-width: 1200px; margin: 0 auto; background: white; border-radius: 10px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); overflow: hidden; min-height: 90vh; margin: 5vh auto;">
+            <div class="header" style="background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); padding: 30px; display: flex; justify-content: space-between; align-items: center;">
+                <div class="user-info" style="display: flex; align-items: center; gap: 20px;">
+                    <img id="profileAvatar" src="" alt="用户头像" class="avatar" style="width: 100px; height: 100px; border-radius: 50%; object-fit: cover; border: 3px solid white; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);">
+                    <div class="user-details">
+                        <h1 id="profileUserName">加载中...</h1>
+                        <p>吕梁精神网站用户</p>
+                    </div>
+                </div>
+                <button class="back-btn" onclick="showMainContent()" style="background: #667eea; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-size: 14px; transition: background 0.3s ease;">返回上一页</button>
+            </div>
+            
+            <div class="content" style="padding: 30px;">
+                <div class="tabs" style="display: flex; gap: 20px; margin-bottom: 30px; border-bottom: 2px solid #f0f0f0; padding-bottom: 10px;">
+                    <div class="tab active" onclick="switchProfileTab('my-comments', this)" style="padding: 10px 20px; cursor: pointer; border-bottom: 3px solid #667eea; transition: all 0.3s ease; font-size: 16px; font-weight: 500; color: #667eea;">我发布的评论</div>
+                    <div class="tab" onclick="switchProfileTab('liked-comments', this)" style="padding: 10px 20px; cursor: pointer; border-bottom: 3px solid transparent; transition: all 0.3s ease; font-size: 16px; font-weight: 500; color: #666;">点赞过的评论</div>
+                </div>
+                
+                <div id="my-comments" class="tab-content active" style="display: block;">
+                    <div class="comment-list" id="myCommentsList">
+                        <div class="empty-message" style="text-align: center; padding: 60px 0; color: #999; font-size: 16px;">加载中...</div>
+                    </div>
+                </div>
+                
+                <div id="liked-comments" class="tab-content" style="display: none;">
+                    <div class="comment-list" id="likedCommentsList">
+                        <div class="empty-message" style="text-align: center; padding: 60px 0; color: #999; font-size: 16px;">加载中...</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 他人主页视图 -->
+    <div id="otherProfileView" class="profile-view" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); z-index: 9999; overflow-y: auto;">
+        <div class="container" style="max-width: 1200px; margin: 0 auto; background: white; border-radius: 10px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); overflow: hidden; min-height: 90vh; margin: 5vh auto;">
+            <div class="header" style="background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); padding: 30px; display: flex; justify-content: space-between; align-items: center;">
+                <div class="user-info" style="display: flex; align-items: center; gap: 20px;">
+                    <img id="otherProfileAvatar" src="" alt="用户头像" class="avatar" style="width: 100px; height: 100px; border-radius: 50%; object-fit: cover; border: 3px solid white; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);">
+                    <div class="user-details">
+                        <h1 id="otherProfileUserName">加载中...</h1>
+                        <p>吕梁精神网站用户</p>
+                    </div>
+                </div>
+                <button class="back-btn" onclick="showMainContent()" style="background: #667eea; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-size: 14px; transition: background 0.3s ease;">返回上一页</button>
+            </div>
+            
+            <div class="content" style="padding: 30px;">
+                <div class="tabs" style="display: flex; gap: 20px; margin-bottom: 30px; border-bottom: 2px solid #f0f0f0; padding-bottom: 10px;">
+                    <div class="tab active" onclick="switchOtherProfileTab('other-comments', this)" style="padding: 10px 20px; cursor: pointer; border-bottom: 3px solid #667eea; transition: all 0.3s ease; font-size: 16px; font-weight: 500; color: #667eea;">发布的评论</div>
+                    <div class="tab" onclick="switchOtherProfileTab('other-liked-comments', this)" style="padding: 10px 20px; cursor: pointer; border-bottom: 3px solid transparent; transition: all 0.3s ease; font-size: 16px; font-weight: 500; color: #666;">点赞过的评论</div>
+                </div>
+                
+                <div id="other-comments" class="tab-content active" style="display: block;">
+                    <div class="comment-list" id="otherCommentsList">
+                        <div class="empty-message" style="text-align: center; padding: 60px 0; color: #999; font-size: 16px;">加载中...</div>
+                    </div>
+                </div>
+                
+                <div id="other-liked-comments" class="tab-content" style="display: none;">
+                    <div class="comment-list" id="otherLikedCommentsList">
+                        <div class="empty-message" style="text-align: center; padding: 60px 0; color: #999; font-size: 16px;">加载中...</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+    <script>
+        async function loadSpiritContent() {
+            try {
+                const response = await fetch('/api/spirit');
+                const result = await response.json();
+                
+                if (result.status === 'success') {
+                    const container = document.querySelector('.spirit-cards');
+                    if (!container) return;
+
+                    const imageMap = {
+                        '对党忠诚': 'jingshenneihan/对党忠诚.jpg',
+                        '无私奉献': 'jingshenneihan/无私奉献.jpg',
+                        '敢于斗争': 'jingshenneihan/敢于斗争.jpg'
+                    };
+
+                    container.innerHTML = result.data.map(item => {
+                        const title = item[0];
+                        const content = item[1];
+                        const imagePath = Object.keys(imageMap).find(key => title.includes(key)) 
+                                        ? imageMap[Object.keys(imageMap).find(key => title.includes(key))] 
+                                        : 'jingshenneihan/对党忠诚.jpg';
+                        
+                        return `
+                            <div class="spirit-card" style="background-image: url('${imagePath}');">
+                                <h3>${title}</h3>
+                                <p>${content}</p>
+                            </div>
+                        `;
+                    }).join('');
+                }
+            } catch (error) {
+                console.error('加载精神内涵数据失败:', error);
+            }
+        }
+        
+        document.addEventListener('DOMContentLoaded', loadSpiritContent);
+    </script>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="https://lf-cdn.coze.cn/obj/unpkg/flow-platform/chat-app-sdk/1.1.0-beta.0/libs/cn/index.js"></script>
+
+<script>
+  let chatClient = null;
+
+  function initChat() {
+    chatClient = new CozeWebSDK.WebChatClient({
+      config: {
+        bot_id: '7627810803755876388',
+        isIframe: false,
+        componentProps: {
+          title: '吕梁小助手'
+        },
+        auth: {
+          type: 'token',
+          token: 'pat_3RSssd47oQrXEy7uoUUplnrDIIDLNzedz380LSZzeLR2kEINLnJxpwcMdQlX4b7d',
+          onRefreshToken: function() {
+            return 'pat_3RSssd47oQrXEy7uoUUplnrDIIDLNzedz380LSZzeLR2kEINLnJxpwcMdQlX4b7d';
+          }
+        }
+      }
+    });
+  }
+
+  // 页面加载完成后自动初始化并显示智能助手
+  document.addEventListener('DOMContentLoaded', function() {
+    initChat();
+    if (chatClient) {
+      chatClient.show();  // 直接显示智能助手
+    }
+  });
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </body>
+</html>

@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文化传承 - 吕梁精神</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=ZCOOL+XiaoWei&display=swap">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Serif SC', serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f5f0;
+        }
+
+        header {
+            background: linear-gradient(135deg, #8B3C2A 0%, #A0522D 100%);
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+            position: relative;
+        }
+
+        .back-button {
+            position: fixed;
+            top: 80px;
+            left: 20px;
+            background: rgba(139, 60, 42, 0.9);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 30px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            z-index: 1001;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            font-weight: 500;
+        }
+
+        .back-button:hover {
+            background: rgba(160, 82, 45, 1);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        header h1 {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            font-weight: 700;
+            font-family: 'Ma Shan Zheng', cursive;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        /* 毛玻璃导航栏样式 */
+        .glass-nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            margin: 0 auto;
+            justify-content: center;
+            overflow-x: auto;
+            white-space: nowrap;
+            max-width: 1000px;
+            scrollbar-width: none; /* 隐藏Firefox滚动条 */
+        }
+
+        .nav-menu::-webkit-scrollbar {
+            display: none; /* 隐藏Chrome、Safari等WebKit浏览器滚动条 */
+        }
+
+        .nav-menu li {
+            margin: 0 15px;
+        }
+
+        .nav-menu a {
+            display: block;
+            padding: 15px 15px;
+            color: #8B3C2A;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-size: 16px;
+        }
+
+        .nav-menu a:hover {
+            color: #CD853F;
+            transform: translateY(-2px);
+            font-weight: 700;
+        }
+
+        /* 内容部分ID标记 */
+        .section {
+            scroll-margin-top: 80px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        .content {
+            background: white;
+            border-radius: 15px;
+            padding: 60px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            border: 1px solid rgba(139, 60, 42, 0.1);
+        }
+
+        .content h2 {
+            color: #8B3C2A;
+            margin: 30px 0 20px;
+            font-size: 1.8rem;
+            font-family: 'ZCOOL XiaoWei', serif;
+            border-bottom: 2px solid #8B3C2A;
+            padding-bottom: 10px;
+        }
+
+        .content h3 {
+            color: #8B3C2A;
+            margin: 40px 0 25px;
+            font-size: 1.8rem;
+            font-family: 'ZCOOL XiaoWei', serif;
+            border-bottom: 3px solid #8B3C2A;
+            padding-bottom: 15px;
+            position: relative;
+        }
+
+        .content h3::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 100px;
+            height: 3px;
+            background: #CD853F;
+        }
+
+        .content h4 {
+            color: #A0522D;
+            margin: 25px 0 15px;
+            font-size: 1.4rem;
+            font-family: 'ZCOOL XiaoWei', serif;
+        }
+
+        .content p {
+            margin-bottom: 20px;
+            line-height: 1.8;
+            font-size: 1.1rem;
+            color: #333;
+        }
+
+        .content ul {
+            margin: 20px 0;
+            padding-left: 40px;
+        }
+
+        .content li {
+            margin-bottom: 15px;
+            line-height: 1.8;
+            font-size: 1.1rem;
+            color: #444;
+        }
+
+        .content li strong {
+            color: #8B3C2A;
+            font-weight: 600;
+        }
+
+        .divider {
+            margin: 40px 0;
+            border: 1px solid #e0e0e0;
+            position: relative;
+        }
+
+        .divider::after {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            height: 10px;
+            background: white;
+        }
+
+        footer {
+            background: linear-gradient(135deg, #8B3C2A 0%, #A0522D 100%);
+            color: white;
+            text-align: center;
+            padding: 40px 0;
+            margin-top: 80px;
+            border-top: 3px solid #CD853F;
+        }
+
+        footer p {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.5rem;
+            }
+
+            .content {
+                padding: 30px;
+            }
+
+            .back-button {
+                top: 70px;
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+
+            .container {
+                padding: 40px 20px;
+            }
+
+            .content h3 {
+                font-size: 1.5rem;
+            }
+
+            .content h4 {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html#newera" class="back-button" onclick="returnToNewEra(0);"><i class="fas fa-arrow-left"></i> 返回上一页</a>
+        <h1>文化传承</h1>
+        <p>吕梁精神 · 时代新风</p>
+    </header>
+    
+    <!-- 毛玻璃导航栏 -->
+    <nav class="glass-nav">
+        <div class="nav-container">
+            <ul class="nav-menu">
+                <li><a href="#section1">非物质文化遗产</a></li>
+                <li><a href="#section2">历史文化遗产</a></li>
+                <li><a href="#section3">学校教育传承</a></li>
+                <li><a href="#section4">文旅融合传承</a></li>
+                <li><a href="#section5">数字化传承</a></li>
+                <li><a href="#section6">制度保障</a></li>
+                <li><a href="#section7">时代创新</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="content">
+            <div id="section1" class="section">
+            <h3>一、非物质文化遗产传承（核心活态传承）</h3>
+            
+            <h4>1. 传统戏曲类</h4>
+            <ul>
+                <li><strong>吕梁梆子（晋剧吕梁流派）</strong><br>
+                吕梁梆子是晋剧在吕梁地区的分支，融合了吕梁民间小调、黄河号子的韵律，唱腔高亢激昂、苍凉厚重，极具晋西地域特色。代表剧目有《打金枝》《算粮登殿》《吕梁英雄传》等，既保留传统晋剧的程式化表演，又融入吕梁本土故事，是吕梁人民精神文化的重要载体。传承方式以师徒口传心授、剧团排演、进校园进社区展演为主，目前吕梁市多个县区建有专业梆子剧团，定期开展惠民演出，同时将戏曲知识纳入中小学美育课程，培养年轻传承人。</li>
+                <li><strong>临县伞头秧歌</strong><br>
+                国家级非物质文化遗产，是吕梁临县地区独有的民间歌舞艺术，集歌、舞、戏于一体。表演形式分为“过街秧歌”“场地秧歌”“伞头对唱”，伞头手持花伞领舞，队伍伴随锣鼓唢呐起舞，歌词多为即兴创作，内容涵盖农事、民俗、红色故事、时代新风等，是吕梁黄河文化、民俗文化的活化石。传承上，临县每年举办伞头秧歌大赛、非遗展演活动，建立伞头秧歌传习所，培养青年伞头传承人，同时将秧歌元素融入文旅活动，打造非遗IP。</li>
+                <li><strong>孝义皮影戏</strong><br>
+                国家级非物质文化遗产，被誉为“中国皮影戏的活化石”，始于金代，盛于明清。孝义皮影以牛皮为原料雕刻影人，造型夸张生动、线条流畅，唱腔融合孝义方言与民间小调，表演时通过灯光投射影人演绎故事，传统剧目有《封神演义》《西游记》及本土民间故事。传承上，孝义建有皮影戏博物馆、传习基地，开展皮影雕刻技艺培训、进校园展演，同时创新皮影戏形式，结合现代科技打造沉浸式皮影剧，让传统艺术适配新时代审美。</li>
+                <li><strong>孝义木偶戏</strong><br>
+                国家级非物质文化遗产，与孝义皮影并称“孝义双绝”，木偶造型精美、动作灵活，唱腔融合晋剧与民间小调，表演形式有杖头木偶、提线木偶等，传统剧目涵盖历史故事、神话传说、红色题材。传承上，孝义木偶戏团常年开展全国巡演，走进校园开展木偶体验课，培养年轻木偶制作与表演传承人，同时创新木偶与现代舞台结合的表演形式，拓展传播渠道。</li>
+            </ul>
+
+            <h4>2. 传统手工技艺类</h4>
+            <ul>
+                <li><strong>汾酒酿造技艺</strong><br>
+                国家级非物质文化遗产，是中国清香型白酒的核心技艺，源于6000年前杏花村仰韶文化时期，历经数千年传承，形成“清蒸二次清、地缸固态发酵”的独特工艺。技艺涵盖制曲、酿酒、陈酿、勾调等全流程，每一步都遵循传统古法，同时结合现代标准化生产，实现传统技艺与现代产业的融合。传承上，汾酒集团建立汾酒文化博物馆、酿造技艺传习所，培养国家级、省级非遗传承人，开展技艺培训、研学体验，同时将汾酒酿造技艺申报世界非物质文化遗产，推动中华酒文化走向世界。</li>
+                <li><strong>柳林盘子制作技艺</strong><br>
+                国家级非物质文化遗产，是柳林地区独有的民间祭祀、民俗工艺，“盘子”是集木雕、石雕、砖雕、彩绘、剪纸于一体的大型工艺摆件，造型精美、工艺繁复，用于春节、元宵节等民俗活动，承载柳林地区的民俗信仰与文化传统。传承上，柳林建立盘子制作技艺传习所，培养年轻匠人，每年举办盘子文化节，展示传统盘子作品，同时创新盘子设计，融入现代元素，让传统工艺适配文旅市场。</li>
+                <li><strong>中阳剪纸</strong><br>
+                国家级非物质文化遗产，是吕梁中阳地区的民间剪纸艺术，以黄河文化、民俗生活、红色故事为创作主题，造型粗犷质朴、线条苍劲有力，兼具北方剪纸的雄浑与吕梁地域的特色。传承上，中阳建立剪纸博物馆、传习基地，开展剪纸培训、进校园活动，培养青年剪纸艺人，同时将剪纸元素融入文创产品、文旅设计，打造中阳剪纸IP，推动传统技艺市场化传播。</li>
+                <li><strong>岚县面塑</strong><br>
+                国家级非物质文化遗产，是岚县地区的传统面食工艺，以面粉为原料，通过捏、塑、蒸、染等工序制作成人物、动物、花鸟等造型，用于祭祀、节庆、婚丧嫁娶等民俗活动，造型生动、色彩鲜艳，承载岚县地区的民俗文化与审美情趣。传承上，岚县每年举办面塑文化节，建立面塑传习所，培养年轻面塑艺人，同时将面塑技艺融入文旅体验，打造面塑研学项目。</li>
+            </ul>
+
+            <h4>3. 传统民俗类</h4>
+            <ul>
+                <li><strong>碛口黄河民俗</strong><br>
+                碛口古镇作为黄河水运重镇，传承了明清以来的黄河民俗文化，包括黄河船工号子、码头商贸习俗、婚丧嫁娶民俗、民间社火等。黄河船工号子是船工们在黄河行船时创作的劳动歌谣，节奏铿锵、气势磅礴，是黄河文化的活态载体；碛口古镇每年举办黄河文化旅游节，开展民俗展演、社火表演、非遗市集等活动，传承黄河民俗文化，同时将民俗文化融入古镇文旅，打造沉浸式民俗体验项目。</li>
+                <li><strong>离石弹唱</strong><br>
+                省级非物质文化遗产，是离石地区的民间说唱艺术，以吕梁方言演唱，融合民间小调、秧歌韵律，内容涵盖民间故事、生活趣事、红色故事等，表演形式灵活，深受吕梁人民喜爱。传承上，离石建立弹唱传习所，培养青年弹唱艺人，开展惠民演出、进校园活动，同时创新弹唱内容，融入时代主题，让传统说唱艺术适配新时代需求。</li>
+                <li><strong>文水鈲子</strong><br>
+                国家级非物质文化遗产，是文水地区的传统民间锣鼓艺术，以独特的鈲子（铜制打击乐器）为核心，融合锣鼓、唢呐等乐器，表演气势恢宏、节奏鲜明，用于节庆、祭祀等民俗活动，承载文水地区的民俗文化与集体精神。传承上，文水建立鈲子传习所，培养青年传承人，开展锣鼓展演、进校园活动，同时将鈲子艺术融入文旅活动，打造文水文化名片。</li>
+            </ul>
+
+            </div>
+            <div class="divider"></div>
+
+            <div id="section2" class="section">
+            <h3>二、历史文化遗产保护与传承（物质文化传承）</h3>
+            
+            <h4>1. 古建筑与古遗址保护</h4>
+            <ul>
+                <li><strong>吕梁古建筑群保护</strong><br>
+                吕梁境内留存大量明清及更早的古建筑，包括卦山天宁万寿禅寺、柳林香严寺、碛口古镇明清建筑群、北武当山道教建筑群等，均为全国重点文物保护单位。吕梁市建立古建筑保护长效机制，开展古建筑修缮、抢险加固、环境整治工作，运用现代科技手段（如三维扫描、数字化建档）对古建筑进行保护与监测，同时开放古建筑作为文旅景点，开展古建筑文化研学、讲解，让公众了解古建筑的历史文化价值。</li>
+                <li><strong>古遗址与古墓葬保护</strong><br>
+                吕梁境内有杏花村仰韶文化遗址、兴县碧村遗址、离石马茂庄汉墓群等重要古遗址、古墓葬，其中杏花村遗址是中国最早人工酿酒的实证，碧村遗址是北方石城文化的重要代表。吕梁市开展古遗址考古发掘、保护修缮工作，建立遗址博物馆、考古工作站，展示考古成果，同时开展遗址文化研学活动，传承吕梁远古文明与历史文化。</li>
+                <li><strong>传统村落保护</strong><br>
+                吕梁境内有碛口古镇、西湾村、李家山村、彩家庄古村等多个中国传统村落，保留了明清时期晋西传统民居、村落格局、民俗文化。吕梁市建立传统村落保护名录，开展村落修缮、环境整治、文化传承工作，保护传统村落的完整性与真实性，同时发展乡村文旅，打造传统村落文旅品牌，让传统村落活态传承。</li>
+            </ul>
+
+            <h4>2. 红色文化遗产传承（吕梁精神核心载体）</h4>
+            <ul>
+                <li><strong>晋绥边区革命旧址保护</strong><br>
+                兴县晋绥边区革命纪念馆、蔡家崖革命旧址、红军东征总指挥部旧址等红色革命旧址，是吕梁精神的发源地，承载晋绥边区革命斗争史。吕梁市对红色旧址进行修缮、保护，建立红色纪念馆，展陈革命文物、历史资料，开展红色教育、研学活动，传承晋绥边区革命精神与吕梁精神。</li>
+                <li><strong>革命文物保护与利用</strong><br>
+                吕梁市馆藏革命文物数万件，包括晋绥边区革命文献、烈士遗物、武器装备等，对革命文物进行抢救性保护、数字化建档，同时在博物馆、纪念馆展陈革命文物，开展革命文物进校园、进社区活动，传承红色文化与吕梁精神。</li>
+                <li><strong>红色文化传承体系建设</strong><br>
+                吕梁市建立红色文化传承基地，包括刘胡兰纪念馆、晋绥边区革命纪念馆、红军东征纪念馆等，开展红色教育、主题党日、研学实践活动，将红色文化融入学校教育、社会教育，传承吕梁精神与革命文化。</li>
+            </ul>
+
+            </div>
+            <div class="divider"></div>
+
+            <div id="section3" class="section">
+            <h3>三、学校教育与文化传承（青少年传承体系）</h3>
+            
+            <h4>1. 传统文化进校园</h4>
+            <ul>
+                <li><strong>非遗进校园</strong><br>
+                吕梁市将孝义皮影、木偶戏、中阳剪纸、临县伞头秧歌等非遗项目纳入中小学美育课程，开展非遗进校园展演、体验活动，邀请非遗传承人进校园授课，培养学生对传统文化的认知与兴趣，从小传承吕梁本土文化。</li>
+                <li><strong>地方历史文化教育</strong><br>
+                吕梁市编写本土历史文化教材，将吕梁历史、晋绥革命史、吕梁精神、非遗文化等纳入中小学德育、历史课程，开展地方文化主题班会、研学活动，让学生了解吕梁的历史文化与精神内涵，培养文化认同感与自豪感。</li>
+                <li><strong>校园文化活动传承</strong><br>
+                吕梁市各中小学开展校园文化节、非遗展演、红色主题活动、戏曲进校园等活动，搭建学生传承传统文化的平台，让学生在实践中传承吕梁文化，同时培养学生的文化自信与民族精神。</li>
+            </ul>
+
+            <h4>2. 高校文化传承与研究</h4>
+            <ul>
+                <li><strong>吕梁学院等高校文化研究</strong><br>
+                吕梁学院等本地高校设立吕梁文化研究中心、晋绥文化研究院，开展吕梁历史文化、红色文化、非遗文化的研究工作，出版学术著作、发表研究论文，为吕梁文化传承提供学术支撑。</li>
+                <li><strong>高校文化传承实践</strong><br>
+                高校开展吕梁文化主题讲座、研学实践、非遗体验活动，培养学生的文化传承意识，同时为吕梁文化传承培养专业人才，推动吕梁文化的研究与传播。</li>
+            </ul>
+
+            </div>
+            <div class="divider"></div>
+
+            <div id="section4" class="section">
+            <h3>四、文旅融合与文化传承（市场化活态传承）</h3>
+            
+            <h4>1. 文旅IP打造与品牌建设</h4>
+            <ul>
+                <li><strong>吕梁文旅品牌塑造</strong><br>
+                吕梁市打造“吕梁精神、黄河文化、晋商文化、非遗文化”四大文旅IP，推出碛口古镇、北武当山、卦山、晋绥边区革命纪念馆等核心文旅景点，打造吕梁文旅品牌，推动文化传承与旅游产业融合。</li>
+                <li><strong>非遗文旅产品开发</strong><br>
+                开发中阳剪纸、汾酒文创、柳林盘子、岚县面塑等非遗文创产品，将传统工艺与现代设计结合，打造吕梁特色文创品牌，通过文旅市场传播吕梁文化，同时为非遗传承人提供就业渠道，推动非遗活态传承。</li>
+                <li><strong>文旅活动传承文化</strong><br>
+                举办吕梁黄河文化旅游节、碛口古镇文化节、临县伞头秧歌节、汾酒文化节等文旅活动，展示吕梁非遗文化、民俗文化、红色文化，吸引游客了解吕梁文化，推动文化传承与传播。</li>
+            </ul>
+
+            <h4>2. 沉浸式文化体验项目</h4>
+            <ul>
+                <li><strong>非遗体验基地建设</strong><br>
+                建立汾酒酿造技艺体验基地、孝义皮影木偶体验基地、中阳剪纸体验基地等，让游客沉浸式体验吕梁传统技艺，了解非遗文化的内涵与价值，推动文化传承。</li>
+                <li><strong>红色文旅沉浸式体验</strong><br>
+                打造晋绥边区革命纪念馆沉浸式展厅、红军东征沉浸式体验项目，通过场景复原、数字技术等手段，让游客沉浸式感受吕梁红色文化与吕梁精神，传承红色基因。</li>
+                <li><strong>古镇民俗沉浸式体验</strong><br>
+                碛口古镇打造明清码头沉浸式体验、黄河民俗沉浸式展演等项目，让游客沉浸式感受吕梁黄河文化、晋商文化，传承古镇历史文化。</li>
+            </ul>
+
+            </div>
+            <div class="divider"></div>
+
+            <div id="section5" class="section">
+            <h3>五、数字化传承与新媒体传播（新时代传承方式）</h3>
+            
+            <h4>1. 文化数字化建档与保护</h4>
+            <ul>
+                <li><strong>非遗数字化保护</strong><br>
+                运用三维扫描、数字建模、音视频录制等技术，对吕梁非遗项目、传承人、技艺进行数字化建档，建立吕梁非遗数字博物馆，永久保存非遗文化，同时通过数字平台传播非遗文化。</li>
+                <li><strong>古建筑与文物数字化保护</strong><br>
+                对吕梁古建筑、革命文物、古遗址进行数字化扫描、建档，建立数字博物馆、数字展厅，通过线上平台展示吕梁文化遗产，让公众足不出户了解吕梁文化。</li>
+                <li><strong>红色文化数字化传承</strong><br>
+                建立晋绥边区革命历史数字博物馆、吕梁精神数字展厅，通过数字技术还原革命历史，传播吕梁精神与红色文化。</li>
+            </ul>
+
+            <h4>2. 新媒体传播与文化推广</h4>
+            <ul>
+                <li><strong>短视频与直播传播</strong><br>
+                通过抖音、快手、视频号等新媒体平台，发布吕梁非遗技艺、民俗文化、红色文化、文旅景点等短视频，开展非遗传承人直播、文旅直播，传播吕梁文化，扩大文化影响力。</li>
+                <li><strong>新媒体平台文化专栏</strong><br>
+                在微信公众号、微博、B站等平台开设吕梁文化专栏，发布吕梁历史文化、非遗文化、红色文化等内容，打造吕梁文化新媒体传播矩阵，推动文化传承与传播。</li>
+                <li><strong>数字文创与元宇宙应用</strong><br>
+                开发吕梁文化数字文创、元宇宙文旅项目，运用元宇宙技术打造虚拟吕梁文化展厅、非遗体验空间，让传统文化适配数字时代，吸引年轻群体了解与传承吕梁文化。</li>
+            </ul>
+
+            </div>
+            <div class="divider"></div>
+
+            <div id="section6" class="section">
+            <h3>六、制度保障与传承体系建设（长效传承机制）</h3>
+            
+            <h4>1. 非遗保护制度建设</h4>
+            <ul>
+                <li><strong>非遗名录体系建设</strong><br>
+                建立国家级、省级、市级、县级四级非遗名录体系，将吕梁更多非遗项目纳入名录，给予非遗传承人资金扶持、政策支持，保障非遗传承。</li>
+                <li><strong>非遗传承人培养机制</strong><br>
+                建立非遗传承人培训、评选、扶持机制，开展非遗传承人研修培训，培养青年非遗传承人，同时给予非遗传承人补贴、荣誉奖励，激发传承积极性。</li>
+                <li><strong>非遗保护专项资金</strong><br>
+                设立吕梁非遗保护专项资金，用于非遗项目保护、传承人扶持、传习所建设、文旅活动开展等，保障非遗传承的长效性。</li>
+            </ul>
+
+            <h4>2. 文化传承政策支持</h4>
+            <ul>
+                <li><strong>文化传承政策制定</strong><br>
+                吕梁市出台《吕梁市非物质文化遗产保护条例》《吕梁市红色文化传承发展实施方案》等政策，为文化传承提供政策保障，推动文化传承与文旅产业、教育、科技融合发展。</li>
+                <li><strong>文化传承人才培养</strong><br>
+                培养文化传承专业人才，包括非遗传承人、文物保护人才、文化研究人才、文旅运营人才等，为吕梁文化传承提供人才支撑。</li>
+                <li><strong>文化传承考核机制</strong><br>
+                将文化传承工作纳入地方政府考核体系，推动各级政府重视文化传承工作，建立长效传承机制。</li>
+            </ul>
+
+            </div>
+            <div class="divider"></div>
+
+            <div id="section7" class="section">
+            <h3>七、时代新风下的文化创新传承（与时俱进的传承）</h3>
+            
+            <h4>1. 传统文化与时代主题融合</h4>
+            <ul>
+                <li><strong>非遗内容创新</strong><br>
+                推动非遗项目融入时代主题，如临县伞头秧歌创作红色主题、乡村振兴主题内容，孝义皮影戏创作新时代故事，让传统艺术适配时代需求，焕发新活力。</li>
+                <li><strong>红色文化与时代精神结合</strong><br>
+                将吕梁精神与新时代奋斗精神、乡村振兴、爱国主义教育结合，开展新时代红色文化传承活动，让吕梁精神在新时代传承发扬。</li>
+                <li><strong>传统文化与现代生活融合</strong><br>
+                将吕梁非遗文化、民俗文化融入现代生活，开发非遗文创、非遗服饰、非遗美食等，让传统文化走进现代生活，实现活态传承。</li>
+            </ul>
+
+            <h4>2. 文化传承与乡村振兴结合</h4>
+            <ul>
+                <li><strong>非遗助力乡村振兴</strong><br>
+                推动非遗项目与乡村产业结合，发展非遗工坊、乡村文旅、非遗电商等，让非遗成为乡村振兴的重要支撑，同时推动非遗在乡村的活态传承。</li>
+                <li><strong>传统村落与乡村文旅结合</strong><br>
+                依托传统村落发展乡村文旅，打造乡村文旅品牌，传承传统村落文化，同时带动乡村经济发展，实现文化传承与乡村振兴双赢。</li>
+                <li><strong>红色文化与乡村振兴结合</strong><br>
+                依托红色文化资源发展红色文旅，带动乡村经济发展，传承红色文化与吕梁精神，推动乡村振兴。</li>
+            </ul>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2025 吕梁精神传承计划 | 史料来源：《吕梁英雄传》、晋绥边区革命纪念馆 | 仅用于学习交流</p>
+    </footer>
+    
+    <script>
+        // 返回时代新风模块并激活对应卡片
+        function returnToNewEra(cardIndex) {
+            // 存储卡片索引到本地存储
+            localStorage.setItem('activeCard', cardIndex);
+            // 跳转到时代新风模块
+            window.location.href = 'index.html#newera';
+            return false;
+        }
+    </script>
+
+
+
+
+
+
+
+<script src="https://lf-cdn.coze.cn/obj/unpkg/flow-platform/chat-app-sdk/1.1.0-beta.0/libs/cn/index.js"></script>
+
+<script>
+  let chatClient = null;
+
+  function initChat() {
+    chatClient = new CozeWebSDK.WebChatClient({
+      config: {
+        bot_id: '7627810803755876388',
+        isIframe: false,
+        componentProps: {
+          title: '吕梁小助手'
+        },
+        auth: {
+          type: 'token',
+          token: 'pat_3RSssd47oQrXEy7uoUUplnrDIIDLNzedz380LSZzeLR2kEINLnJxpwcMdQlX4b7d',
+          onRefreshToken: function() {
+            return 'pat_3RSssd47oQrXEy7uoUUplnrDIIDLNzedz380LSZzeLR2kEINLnJxpwcMdQlX4b7d';
+          }
+        }
+      }
+    });
+  }
+
+  // 页面加载完成后自动初始化并显示智能助手
+  document.addEventListener('DOMContentLoaded', function() {
+    initChat();
+    if (chatClient) {
+      chatClient.show();  // 直接显示智能助手
+    }
+  });
+</script>
+
+
+
+
+
+
+
+
+</body>
+</html>

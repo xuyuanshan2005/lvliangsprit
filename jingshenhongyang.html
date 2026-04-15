@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>精神弘扬 - 吕梁精神</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=ZCOOL+XiaoWei&display=swap">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Serif SC', serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f5f0;
+        }
+
+        header {
+            background: linear-gradient(135deg, #8B3C2A 0%, #A0522D 100%);
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+            position: relative;
+        }
+
+        .back-button {
+            position: fixed;
+            top: 80px;
+            left: 20px;
+            background: rgba(139, 60, 42, 0.9);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 30px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            z-index: 1001;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            font-weight: 500;
+        }
+
+        .back-button:hover {
+            background: rgba(160, 82, 45, 1);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        header h1 {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            font-weight: 700;
+            font-family: 'Ma Shan Zheng', cursive;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        /* 毛玻璃导航栏样式 */
+        .glass-nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            margin: 0 auto;
+            justify-content: center;
+            overflow-x: auto;
+            white-space: nowrap;
+            max-width: 1000px;
+        }
+
+        .nav-menu li {
+            margin: 0 15px;
+        }
+
+        .nav-menu a {
+            display: block;
+            padding: 15px 15px;
+            color: #8B3C2A;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-size: 16px;
+        }
+
+        .nav-menu a:hover {
+            color: #CD853F;
+            transform: translateY(-2px);
+            font-weight: 700;
+        }
+
+        /* 内容部分ID标记 */
+        .section {
+            scroll-margin-top: 80px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        .content {
+            background: white;
+            border-radius: 15px;
+            padding: 60px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            border: 1px solid rgba(139, 60, 42, 0.1);
+        }
+
+        .content h2 {
+            color: #8B3C2A;
+            margin: 30px 0 20px;
+            font-size: 1.8rem;
+            font-family: 'ZCOOL XiaoWei', serif;
+            border-bottom: 2px solid #8B3C2A;
+            padding-bottom: 10px;
+        }
+
+        .content h3 {
+            color: #8B3C2A;
+            margin: 40px 0 25px;
+            font-size: 1.8rem;
+            font-family: 'ZCOOL XiaoWei', serif;
+            border-bottom: 3px solid #8B3C2A;
+            padding-bottom: 15px;
+            position: relative;
+        }
+
+        .content h3::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 100px;
+            height: 3px;
+            background: #CD853F;
+        }
+
+        .content h4 {
+            color: #A0522D;
+            margin: 25px 0 15px;
+            font-size: 1.4rem;
+            font-family: 'ZCOOL XiaoWei', serif;
+        }
+
+        .content p {
+            margin-bottom: 20px;
+            line-height: 1.8;
+            font-size: 1.1rem;
+            color: #333;
+        }
+
+        .content ul {
+            margin: 20px 0;
+            padding-left: 40px;
+        }
+
+        .content li {
+            margin-bottom: 15px;
+            line-height: 1.8;
+            font-size: 1.1rem;
+            color: #444;
+        }
+
+        .content li strong {
+            color: #8B3C2A;
+            font-weight: 600;
+        }
+
+        .divider {
+            margin: 40px 0;
+            border: 1px solid #e0e0e0;
+            position: relative;
+        }
+
+        .divider::after {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            height: 10px;
+            background: white;
+        }
+
+        footer {
+            background: linear-gradient(135deg, #8B3C2A 0%, #A0522D 100%);
+            color: white;
+            text-align: center;
+            padding: 40px 0;
+            margin-top: 80px;
+            border-top: 3px solid #CD853F;
+        }
+
+        footer p {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.5rem;
+            }
+
+            .content {
+                padding: 30px;
+            }
+
+            .back-button {
+                top: 70px;
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+
+            .container {
+                padding: 40px 20px;
+            }
+
+            .content h3 {
+                font-size: 1.5rem;
+            }
+
+            .content h4 {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html#newera" class="back-button" onclick="returnToNewEra(2);"><i class="fas fa-arrow-left"></i> 返回上一页</a>
+        <h1>精神弘扬</h1>
+        <p>吕梁精神 · 时代新风</p>
+    </header>
+    
+    <!-- 毛玻璃导航栏 -->
+    <nav class="glass-nav">
+        <div class="nav-container">
+            <ul class="nav-menu">
+                <li><a href="#section1">核心内涵</a></li>
+                <li><a href="#section2">核心载体</a></li>
+                <li><a href="#section3">多元路径</a></li>
+                <li><a href="#section4">创新实践</a></li>
+                <li><a href="#section5">长效机制</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="content">
+            <div id="section1" class="section">
+            <h3>一、吕梁精神核心内涵与时代价值（弘扬根基）</h3>
+            
+            <h4>1. 吕梁精神的核心内涵</h4>
+            <p>吕梁精神诞生于晋绥边区革命斗争的烽火岁月，凝练为<strong>“艰苦奋斗、顾全大局、自强不息、勇于创新”</strong> 十六字核心：</p>
+            <ul>
+                <li><strong>艰苦奋斗</strong>：晋绥边区军民在极端艰苦的条件下，自力更生、开荒生产、支援前线，用血肉之躯筑牢革命堡垒，是吕梁精神的底色；</li>
+                <li><strong>顾全大局</strong>：晋绥边区作为陕甘宁边区的屏障，始终以全国革命大局为重，无私奉献人力、物力、财力，是吕梁精神的灵魂；</li>
+                <li><strong>自强不息</strong>：吕梁人民在革命、建设、改革各个时期，直面困难、迎难而上，不断突破发展瓶颈，是吕梁精神的脊梁；</li>
+                <li><strong>勇于创新</strong>：吕梁人民在传承红色基因的基础上，与时俱进、开拓进取，推动吕梁在新时代实现高质量发展，是吕梁精神的动力。</li>
+            </ul>
+
+            <h4>2. 吕梁精神的时代价值</h4>
+            <ul>
+                <li><strong>红色基因传承价值</strong>：吕梁精神是中国革命精神的重要组成部分，是晋绥边区革命历史的精神结晶，承载着中国共产党人的初心和使命，是新时代爱国主义教育的核心素材；</li>
+                <li><strong>区域发展引领价值</strong>：吕梁精神是吕梁转型发展、乡村振兴、民生改善的精神旗帜，引领吕梁人民在新时代攻坚克难、奋勇争先，推动吕梁从资源型城市向创新型城市转型；</li>
+                <li><strong>民族精神传承价值</strong>：吕梁精神是中华民族精神在吕梁的具体体现，凝聚了吕梁人民的家国情怀、奋斗精神，是中华民族伟大复兴的精神动力；</li>
+                <li><strong>文化自信支撑价值</strong>：吕梁精神是吕梁文化的核心，是吕梁人民文化自信的重要来源，推动吕梁文化传承与创新，提升吕梁的文化影响力。</li>
+            </ul>
+
+            </div>
+            <div class="divider"></div>
+
+            <div id="section2" class="section">
+            <h3>二、吕梁精神弘扬的核心载体（阵地建设）</h3>
+            
+            <h4>1. 红色纪念馆与教育基地（核心阵地）</h4>
+            <ul>
+                <li><strong>晋绥边区革命纪念馆（蔡家崖）</strong>：吕梁精神的发源地，全国重点文物保护单位、国家级爱国主义教育示范基地。馆内展陈晋绥边区革命斗争史、革命文物4300余件，保留毛泽东等老一辈革命家旧居、晋绥干部会议旧址，是吕梁精神弘扬的核心阵地，每年接待数百万党员干部、青少年开展主题教育、研学实践。</li>
+                <li><strong>刘胡兰纪念馆</strong>：全国爱国主义教育示范基地，纪念“生的伟大，死的光荣”的革命烈士刘胡兰，是吕梁精神“无私奉献、英勇无畏”的标志性载体。馆内展陈刘胡兰生平事迹、革命文物，开展红色教育、主题党日活动，是青少年德育教育的重要基地。</li>
+                <li><strong>红军东征纪念馆（石楼）</strong>：全国爱国主义教育示范基地，展陈红军东征抗日历史，是吕梁精神“英勇奋斗、自强不息”的重要见证，传承红军东征精神与吕梁红色基因。</li>
+                <li><strong>其他红色教育基地</strong>：包括红军东征总指挥部旧址（交口）、临县烈士陵园、方山县革命烈士陵园、交城县烈士陵园等，构建覆盖吕梁13区县的红色教育阵地体系，实现吕梁精神弘扬的全域覆盖。</li>
+            </ul>
+
+            <h4>2. 博物馆与文化场馆（文化载体）</h4>
+            <ul>
+                <li><strong>吕梁市汉画像石博物馆</strong>：展陈吕梁汉代历史文化，结合红色文化展陈，传承吕梁历史文脉与红色基因；</li>
+                <li><strong>汾酒博物馆</strong>：以汾酒6000年酿造史为载体，融入晋商精神、吕梁精神，展示吕梁人民艰苦奋斗、开拓创新的精神风貌；</li>
+                <li><strong>贾家庄展览馆</strong>：展示贾家庄几代人治碱改土、艰苦奋斗的历程，是吕梁精神在乡村振兴中的鲜活实践载体，开展乡村振兴主题教育、吕梁精神实践教育。</li>
+            </ul>
+
+            </div>
+            <div class="divider"></div>
+
+            <div id="section3" class="section">
+            <h3>三、吕梁精神弘扬的多元路径（分领域落地）</h3>
+            
+            <h4>1. 学校教育体系（青少年传承）</h4>
+            <ul>
+                <li><strong>进校园主题教育</strong>：将吕梁精神纳入中小学德育、思政课程，编写《吕梁精神》本土教材，开展吕梁精神主题班会、红色研学、英雄事迹宣讲等活动，让青少年从小传承吕梁精神；</li>
+                <li><strong>校园文化活动</strong>：举办吕梁精神主题演讲比赛、征文比赛、红色文艺汇演、红色研学实践等活动，搭建青少年传承吕梁精神的平台；</li>
+                <li><strong>高校思政教育</strong>：吕梁学院等本地高校开设吕梁精神、晋绥文化相关课程，建立吕梁精神研究中心，开展吕梁精神学术研究，培养青年学生的红色信仰与奋斗精神；</li>
+                <li><strong>思政课创新</strong>：运用VR/AR、数字展厅等现代科技，打造沉浸式思政课堂，让学生沉浸式感受吕梁精神的内涵，提升思政教育的实效性。</li>
+            </ul>
+
+            <h4>2. 干部教育培训（党员干部引领）</h4>
+            <ul>
+                <li><strong>党校专题培训</strong>：吕梁市委党校、各区县党校将吕梁精神纳入党员干部培训核心课程，开展吕梁精神专题研讨、红色研学，提升党员干部的党性修养与责任担当；</li>
+                <li><strong>主题党日活动</strong>：各级党组织开展“弘扬吕梁精神、建功新时代”主题党日活动，组织党员干部走进红色教育基地，重温革命历史，传承吕梁精神；</li>
+                <li><strong>干部作风建设</strong>：将吕梁精神融入干部作风建设，以“艰苦奋斗、顾全大局”的精神引领干部履职尽责，推动吕梁高质量发展；</li>
+                <li><strong>典型示范引领</strong>：选树弘扬吕梁精神的党员干部典型，宣传先进事迹，发挥榜样引领作用，带动全市党员干部践行吕梁精神。</li>
+            </ul>
+
+            <h4>3. 社会宣传与文化传播（全民弘扬）</h4>
+            <ul>
+                <li><strong>媒体宣传矩阵</strong>：整合吕梁日报、吕梁广播电视台等传统媒体，以及抖音、快手、视频号、微信公众号等新媒体平台，开设吕梁精神专栏，发布红色故事、英雄事迹、吕梁发展成就等内容，打造吕梁精神全媒体传播体系；</li>
+                <li><strong>文艺作品创作</strong>：创作吕梁精神主题的文艺作品，包括电视剧《吕梁英雄传》、话剧、歌曲、舞蹈、美术、文学作品等，用文艺形式传播吕梁精神，让吕梁精神走进千家万户；</li>
+                <li><strong>社会宣传阵地</strong>：在城市广场、公园、公交、地铁、社区等场所，设置吕梁精神主题宣传栏、雕塑、景观，营造弘扬吕梁精神的社会氛围；</li>
+                <li><strong>新时代文明实践</strong>：依托新时代文明实践中心（所、站），开展吕梁精神主题宣讲、志愿服务、文化惠民等活动，推动吕梁精神融入基层、融入群众。</li>
+            </ul>
+
+            <h4>4. 文旅融合传播（文旅赋能）</h4>
+            <ul>
+                <li><strong>红色文旅线路打造</strong>：推出“晋绥边区革命旧址-刘胡兰纪念馆-红军东征纪念馆-贾家庄”等吕梁精神主题红色文旅线路，整合全市红色资源，开展红色研学、文旅体验，让游客在旅行中感悟吕梁精神；</li>
+                <li><strong>沉浸式文旅项目</strong>：打造晋绥边区革命纪念馆沉浸式展厅、红军东征沉浸式体验项目，运用数字技术还原革命历史，让游客沉浸式感受吕梁精神；</li>
+                <li><strong>文旅活动传播</strong>：举办吕梁精神主题文化旅游节、红色文化节、晋绥边区革命历史研讨会等活动，提升吕梁精神的知名度与影响力；</li>
+                <li><strong>文创产品开发</strong>：开发吕梁精神主题文创产品，如红色主题盲盒、手办、服饰、伴手礼等，让吕梁精神通过文创产品走进现代生活。</li>
+            </ul>
+
+            <h4>5. 乡村振兴实践（基层落地）</h4>
+            <ul>
+                <li><strong>乡村振兴精神引领</strong>：以吕梁精神引领乡村振兴，推动吕梁农村地区发扬艰苦奋斗、自强不息的精神，发展特色农业、乡村文旅、非遗产业，实现乡村全面振兴；</li>
+                <li><strong>典型村示范引领</strong>：打造贾家庄、西湾村等乡村振兴示范村，以贾家庄的奋斗历程为样板，推广吕梁精神在乡村振兴中的实践经验；</li>
+                <li><strong>农民精神培育</strong>：开展吕梁精神主题宣讲、技能培训、文化活动，培育农民的奋斗精神、创新意识，激发乡村振兴的内生动力；</li>
+                <li><strong>乡村文化建设</strong>：将吕梁精神融入乡村文化建设，建设乡村红色文化广场、文化墙，开展乡村红色文化活动，传承吕梁精神，提升乡村文明水平。</li>
+            </ul>
+
+            </div>
+            <div class="divider"></div>
+
+            <div id="section4" class="section">
+            <h3>四、吕梁精神弘扬的创新实践（新时代焕新）</h3>
+            
+            <h4>1. 数字化弘扬（科技赋能）</h4>
+            <ul>
+                <li><strong>数字博物馆与云展厅</strong>：打造吕梁精神数字博物馆、晋绥边区革命历史云展厅，运用VR/AR、360°全景等技术，实现吕梁精神线上沉浸式传播，打破地域限制；</li>
+                <li><strong>新媒体传播创新</strong>：开展吕梁精神主题短视频创作、直播宣讲、云研学等活动，通过新媒体平台吸引年轻群体了解、传承吕梁精神；</li>
+                <li><strong>数字文创与元宇宙应用</strong>：开发吕梁精神数字文创、元宇宙红色体验馆，让吕梁精神适配数字时代，拓展传播边界。</li>
+            </ul>
+
+            <h4>2. 时代化阐释（与时俱进）</h4>
+            <ul>
+                <li><strong>新时代内涵解读</strong>：结合新时代奋斗精神、乡村振兴、爱国主义教育，赋予吕梁精神新的时代内涵，让吕梁精神与新时代同频共振；</li>
+                <li><strong>典型榜样选树</strong>：选树新时代弘扬吕梁精神的先进典型，包括创业先锋、道德模范、脱贫攻坚楷模等，用身边事教育身边人，让吕梁精神在新时代落地生根；</li>
+                <li><strong>精神实践融合</strong>：将吕梁精神融入吕梁转型发展、生态保护、民生改善等各项工作，让吕梁精神成为吕梁高质量发展的精神动力。</li>
+            </ul>
+
+            <h4>3. 学术研究与理论支撑（深度传承）</h4>
+            <ul>
+                <li><strong>学术研究平台建设</strong>：建立吕梁精神研究中心、晋绥文化研究院，开展吕梁精神学术研究，出版学术著作、发表研究论文，为吕梁精神弘扬提供理论支撑；</li>
+                <li><strong>学术研讨会举办</strong>：定期举办吕梁精神研讨会、晋绥边区革命历史研讨会，邀请专家学者、革命后代、党员干部开展研讨，深化吕梁精神的理论研究；</li>
+                <li><strong>理论成果转化</strong>：将吕梁精神学术研究成果转化为宣传教育内容、文艺作品、文旅项目，推动吕梁精神的大众化传播。</li>
+            </ul>
+
+            </div>
+            <div class="divider"></div>
+
+            <div id="section5" class="section">
+            <h3>五、吕梁精神弘扬的长效机制（保障体系）</h3>
+            
+            <h4>1. 组织保障</h4>
+            <ul>
+                <li><strong>党委统一领导</strong>：吕梁市委、各区县党委成立吕梁精神弘扬工作领导小组，统筹推进吕梁精神弘扬各项工作，形成党委领导、政府负责、部门协同、社会参与的工作格局；</li>
+                <li><strong>责任落实机制</strong>：将吕梁精神弘扬工作纳入各级政府、部门考核体系，明确责任分工，确保各项工作落地见效。</li>
+            </ul>
+
+            <h4>2. 制度保障</h4>
+            <ul>
+                <li><strong>政策支持</strong>：出台《吕梁市吕梁精神传承发展实施方案》《吕梁市红色文化保护传承条例》等政策，为吕梁精神弘扬提供政策保障；</li>
+                <li><strong>资金保障</strong>：设立吕梁精神弘扬专项资金，用于红色基地建设、宣传教育、学术研究、文旅项目等，保障工作长效开展。</li>
+            </ul>
+
+            <h4>3. 人才保障</h4>
+            <ul>
+                <li><strong>人才培养</strong>：培养吕梁精神研究、宣传、教育专业人才，包括红色讲解员、思政教师、学术研究人员等，为吕梁精神弘扬提供人才支撑；</li>
+                <li><strong>传承人培育</strong>：培育吕梁精神宣讲员、红色文化传承人，开展培训、考核，提升传承人的专业能力。</li>
+            </ul>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2025 吕梁精神传承计划 | 史料来源：《吕梁英雄传》、晋绥边区革命纪念馆 | 仅用于学习交流</p>
+    </footer>
+    
+    <script>
+        // 返回时代新风模块并激活对应卡片
+        function returnToNewEra(cardIndex) {
+            // 存储卡片索引到本地存储
+            localStorage.setItem('activeCard', cardIndex);
+            // 跳转到时代新风模块
+            window.location.href = 'index.html#newera';
+            return false;
+        }
+    </script>
+
+
+
+
+
+<script src="https://lf-cdn.coze.cn/obj/unpkg/flow-platform/chat-app-sdk/1.1.0-beta.0/libs/cn/index.js"></script>
+
+<script>
+  let chatClient = null;
+
+  function initChat() {
+    chatClient = new CozeWebSDK.WebChatClient({
+      config: {
+        bot_id: '7627810803755876388',
+        isIframe: false,
+        componentProps: {
+          title: '吕梁小助手'
+        },
+        auth: {
+          type: 'token',
+          token: 'pat_3RSssd47oQrXEy7uoUUplnrDIIDLNzedz380LSZzeLR2kEINLnJxpwcMdQlX4b7d',
+          onRefreshToken: function() {
+            return 'pat_3RSssd47oQrXEy7uoUUplnrDIIDLNzedz380LSZzeLR2kEINLnJxpwcMdQlX4b7d';
+          }
+        }
+      }
+    });
+  }
+
+  // 页面加载完成后自动初始化并显示智能助手
+  document.addEventListener('DOMContentLoaded', function() {
+    initChat();
+    if (chatClient) {
+      chatClient.show();  // 直接显示智能助手
+    }
+  });
+</script>
+
+
+
+
+
+
+</body>
+</html>

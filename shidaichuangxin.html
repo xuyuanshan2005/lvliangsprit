@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>时代创新 - 吕梁精神</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=ZCOOL+XiaoWei&display=swap">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Serif SC', serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f5f0;
+        }
+
+        header {
+            background: linear-gradient(135deg, #8B3C2A 0%, #A0522D 100%);
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+            position: relative;
+        }
+
+        .back-button {
+            position: fixed;
+            top: 80px;
+            left: 20px;
+            background: rgba(139, 60, 42, 0.9);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 30px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            z-index: 1001;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            font-weight: 500;
+        }
+
+        .back-button:hover {
+            background: rgba(160, 82, 45, 1);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        header h1 {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            font-weight: 700;
+            font-family: 'Ma Shan Zheng', cursive;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        /* 毛玻璃导航栏样式 */
+        .glass-nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            margin: 0 auto;
+            justify-content: center;
+            overflow-x: auto;
+            white-space: nowrap;
+            max-width: 1000px;
+        }
+
+        .nav-menu li {
+            margin: 0 15px;
+        }
+
+        .nav-menu a {
+            display: block;
+            padding: 15px 15px;
+            color: #8B3C2A;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-size: 16px;
+        }
+
+        .nav-menu a:hover {
+            color: #CD853F;
+            transform: translateY(-2px);
+            font-weight: 700;
+        }
+
+        /* 内容部分ID标记 */
+        .section {
+            scroll-margin-top: 80px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        .content {
+            background: white;
+            border-radius: 15px;
+            padding: 60px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            border: 1px solid rgba(139, 60, 42, 0.1);
+        }
+
+        .content h2 {
+            color: #8B3C2A;
+            margin: 30px 0 20px;
+            font-size: 1.8rem;
+            font-family: 'ZCOOL XiaoWei', serif;
+            border-bottom: 2px solid #8B3C2A;
+            padding-bottom: 10px;
+        }
+
+        .content h3 {
+            color: #8B3C2A;
+            margin: 40px 0 25px;
+            font-size: 1.8rem;
+            font-family: 'ZCOOL XiaoWei', serif;
+            border-bottom: 3px solid #8B3C2A;
+            padding-bottom: 15px;
+            position: relative;
+        }
+
+        .content h3::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 100px;
+            height: 3px;
+            background: #CD853F;
+        }
+
+        .content h4 {
+            color: #A0522D;
+            margin: 25px 0 15px;
+            font-size: 1.4rem;
+            font-family: 'ZCOOL XiaoWei', serif;
+        }
+
+        .content p {
+            margin-bottom: 20px;
+            line-height: 1.8;
+            font-size: 1.1rem;
+            color: #333;
+        }
+
+        .content ul {
+            margin: 20px 0;
+            padding-left: 40px;
+        }
+
+        .content li {
+            margin-bottom: 15px;
+            line-height: 1.8;
+            font-size: 1.1rem;
+            color: #444;
+        }
+
+        .content li strong {
+            color: #8B3C2A;
+            font-weight: 600;
+        }
+
+        .divider {
+            margin: 40px 0;
+            border: 1px solid #e0e0e0;
+            position: relative;
+        }
+
+        .divider::after {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            height: 10px;
+            background: white;
+        }
+
+        footer {
+            background: linear-gradient(135deg, #8B3C2A 0%, #A0522D 100%);
+            color: white;
+            text-align: center;
+            padding: 40px 0;
+            margin-top: 80px;
+            border-top: 3px solid #CD853F;
+        }
+
+        footer p {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.5rem;
+            }
+
+            .content {
+                padding: 30px;
+            }
+
+            .back-button {
+                top: 70px;
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+
+            .container {
+                padding: 40px 20px;
+            }
+
+            .content h3 {
+                font-size: 1.5rem;
+            }
+
+            .content h4 {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html#newera" class="back-button" onclick="returnToNewEra(1);"><i class="fas fa-arrow-left"></i> 返回上一页</a>
+        <h1>时代创新</h1>
+        <p>吕梁精神 · 时代新风</p>
+    </header>
+    
+    <!-- 毛玻璃导航栏 -->
+    <nav class="glass-nav">
+        <div class="nav-container">
+            <ul class="nav-menu">
+                <li><a href="#section1">文化数字创新</a></li>
+                <li><a href="#section2">文旅融合创新</a></li>
+                <li><a href="#section3">科技创新升级</a></li>
+                <li><a href="#section4">社会治理创新</a></li>
+                <li><a href="#section5">教育人才创新</a></li>
+                <li><a href="#section6">精神文明创新</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="content">
+            <div id="section1" class="section">
+            <h3>一、文化传承与数字创新（传统文化的现代化焕新）</h3>
+            
+            <h4>1. 非遗数字化保护与创新传播</h4>
+            <ul>
+                <li><strong>非遗数字建档与云展览</strong>：运用三维扫描、8K高清拍摄、数字建模等技术，对汾酒酿造技艺、孝义皮影戏、中阳剪纸、临县伞头秧歌等国家级非遗项目进行全流程数字化记录，建立吕梁非遗数字博物馆，实现非遗技艺、传承人、作品的永久保存与线上云端展示，打破地域限制，让全国观众足不出户就能沉浸式体验吕梁非遗。</li>
+                <li><strong>非遗文创产品创新开发</strong>：以吕梁非遗、黄河文化、吕梁精神为核心，开发系列文创产品，如中阳剪纸纹样的服饰、家居用品，孝义皮影造型的盲盒、手办，汾酒主题的文创酒具、伴手礼，柳林盘子元素的装饰摆件等，将传统工艺与现代设计、年轻审美结合，打造“吕梁非遗”IP，通过电商、文旅渠道销售，让非遗走进现代生活，实现“以创促保、以产养艺”。</li>
+                <li><strong>非遗内容与形式创新</strong>：推动非遗艺术融入现代创作，如用临县伞头秧歌演绎乡村振兴、红色故事等新时代主题，用孝义皮影戏创作现代题材剧目，用中阳剪纸创作吕梁精神、时代新风主题作品；同时结合短视频、直播、元宇宙等形式，开展非遗传承人直播带货、非遗技艺云课堂、元宇宙非遗体验馆等，吸引年轻群体了解、传承非遗。</li>
+            </ul>
+
+            <h4>2. 文物与博物馆数字化创新</h4>
+            <ul>
+                <li><strong>数字博物馆与智慧展厅建设</strong>：吕梁市汉画像石博物馆、晋绥边区革命纪念馆、汾酒博物馆等打造智慧展厅，运用AR/VR、全息投影、互动投影等技术，还原汉代画像石场景、晋绥边区革命历史、汾酒酿造古法，让观众沉浸式体验历史；推出线上数字博物馆，实现360°全景逛馆、文物线上讲解、云研学等功能，拓展博物馆的传播边界。</li>
+                <li><strong>文物数字化保护与研究</strong>：对吕梁境内古建筑、古遗址、革命文物进行数字化扫描、建档，建立文物数字档案库，运用AI技术进行文物病害监测、修复辅助，提升文物保护的科学性与效率；同时开展数字考古，通过三维建模还原碧村遗址、杏花村遗址等古遗址的历史风貌，推动考古成果数字化传播。</li>
+            </ul>
+
+            <h4>3. 红色文化与吕梁精神的创新传播</h4>
+            <ul>
+                <li><strong>红色文化数字IP打造</strong>：以晋绥边区革命历史、刘胡兰英雄事迹、吕梁精神为核心，开发红色主题数字文创、动漫、短视频、有声书等产品，打造“吕梁精神”数字IP；运用VR/AR技术打造沉浸式红色体验馆，还原红军东征、晋绥抗战等历史场景，让观众沉浸式感受吕梁精神的内涵。</li>
+                <li><strong>红色文化传播形式创新</strong>：通过新媒体平台（抖音、快手、视频号、B站等）开设吕梁精神专栏，发布红色故事、英雄事迹、文旅景点等内容，开展红色主题直播、云研学、线上党史学习等活动；同时将吕梁精神融入校园教育、企业培训、乡村振兴宣传，让红色精神在新时代焕发新活力。</li>
+            </ul>
+
+            </div>
+            <div class="divider"></div>
+
+            <div id="section2" class="section">
+            <h3>二、文化产业与文旅融合创新（文化赋能经济发展）</h3>
+            
+            <h4>1. 文旅产业模式创新</h4>
+            <ul>
+                <li><strong>沉浸式文旅项目打造</strong>：碛口古镇打造明清黄河码头沉浸式体验区，通过场景复原、实景演出、互动体验等形式，还原晋商商贸、黄河水运的历史风貌；北武当山、卦山等景区打造道教文化、佛教文化沉浸式体验项目，结合AR导览、数字讲解，提升游客体验；晋绥边区革命纪念馆打造红色沉浸式展厅，让游客沉浸式感受革命历史。</li>
+                <li><strong>文旅IP与品牌创新</strong>：打造“吕梁精神、黄河文化、晋商文化、非遗文化”四大文旅IP，推出吕梁文旅一卡通、文旅联名产品，整合全市文旅资源；举办吕梁黄河文化旅游节、碛口古镇文化节、汾酒文化节、临县伞头秧歌节等品牌文旅活动，提升吕梁文旅的知名度与影响力，推动文旅产业高质量发展。</li>
+                <li><strong>乡村文旅与乡村振兴融合创新</strong>：依托吕梁传统村落、红色资源、非遗文化，发展乡村文旅、民宿、研学等产业，打造贾家庄、西湾村、李家山村等乡村文旅示范村；推动非遗工坊、乡村文创、乡村电商与文旅融合，让村民通过文旅产业增收，实现文化传承与乡村振兴双赢。</li>
+            </ul>
+
+            <h4>2. 文化产业业态创新</h4>
+            <ul>
+                <li><strong>文化创意产业发展</strong>：培育吕梁本土文化创意企业，发展动漫、影视、设计、数字内容等文创产业，打造吕梁文化创意产业园，吸引文创人才、企业入驻；推动文化创意与制造业、农业、旅游业融合，开发文创产品、文旅装备、乡村文创等，延伸文化产业链。</li>
+                <li><strong>文化+科技融合创新</strong>：推动文化与大数据、人工智能、元宇宙等现代科技融合，发展数字文化产业，如数字文旅、数字文创、数字影视等；打造吕梁数字文化产业园，培育数字文化企业，推动文化产业数字化转型。</li>
+                <li><strong>文化+金融融合创新</strong>：设立吕梁文化产业发展基金，为文化企业、文旅项目提供金融支持；推动文化企业上市融资、知识产权质押融资，解决文化企业融资难题；创新文化金融产品，如文旅消费贷、文创保险等，推动文化产业发展。</li>
+            </ul>
+
+            </div>
+            <div class="divider"></div>
+
+            <div id="section3" class="section">
+            <h3>三、科技创新与产业升级（新时代吕梁的发展动力）</h3>
+            
+            <h4>1. 传统产业数字化转型</h4>
+            <ul>
+                <li><strong>煤炭产业智能化升级</strong>：吕梁作为煤炭大市，推动煤炭产业智能化、绿色化转型，建设智能煤矿、无人开采工作面，运用大数据、物联网、AI技术实现煤矿安全生产、高效开采；推动煤炭清洁高效利用，发展煤制烯烃、煤制氢等现代煤化工产业，延伸煤炭产业链，提升产业附加值。</li>
+                <li><strong>白酒产业创新发展</strong>：汾酒集团推动传统酿造技艺与现代科技融合，建设智能化酿酒车间、数字化质量管控系统，提升汾酒品质与生产效率；推动汾酒品牌创新，开发年轻化、个性化产品，拓展线上销售渠道，打造“汾酒”数字IP，推动汾酒走向世界。</li>
+                <li><strong>农业现代化创新</strong>：吕梁发展特色农业，如吕梁红枣、核桃、小米、沙棘等，推动农业数字化、智能化转型，建设智慧农业园区、农产品电商平台，运用大数据指导农业生产、销售；发展农产品深加工，打造吕梁特色农产品品牌，推动农业与文旅、文创融合，发展休闲农业、乡村旅游。</li>
+            </ul>
+
+            <h4>2. 新兴产业培育与创新</h4>
+            <ul>
+                <li><strong>新能源产业发展</strong>：吕梁大力发展光伏、风电、氢能等新能源产业，建设大型光伏电站、风电场，推动新能源与煤炭产业融合，发展“风光火储一体化”项目；培育氢能产业链，推动氢能在交通、工业等领域的应用，打造吕梁新能源产业基地。</li>
+                <li><strong>数字经济与大数据产业</strong>：建设吕梁大数据中心、数字经济产业园，发展大数据、云计算、人工智能等数字产业，推动数字经济与实体经济融合；培育本土数字企业，吸引互联网企业入驻，打造吕梁数字经济名片。</li>
+                <li><strong>新材料产业创新</strong>：发展铝镁合金、碳纤维、新型建材等新材料产业，推动新材料在煤炭、化工、汽车等领域的应用，打造吕梁新材料产业基地，提升产业竞争力。</li>
+            </ul>
+
+            </div>
+            <div class="divider"></div>
+
+            <div id="section4" class="section">
+            <h3>四、社会治理与民生服务创新（提升城市现代化水平）</h3>
+            
+            <h4>1. 智慧城市建设</h4>
+            <ul>
+                <li><strong>智慧政务创新</strong>：打造吕梁智慧政务平台，实现政务服务“一网通办”，让群众足不出户就能办理社保、医保、户籍等业务；运用大数据、AI技术提升政务服务效率，优化营商环境，推动政府治理现代化。</li>
+                <li><strong>智慧交通建设</strong>：建设智慧交通系统，运用大数据、物联网技术实现交通实时监测、智能调度，缓解城市拥堵；推广新能源公交车、共享单车，打造绿色智慧交通体系。</li>
+                <li><strong>智慧民生服务</strong>：建设智慧社区、智慧医疗、智慧教育等民生服务平台，推动医疗、教育、养老等服务数字化、智能化，提升群众生活品质；运用大数据开展民生监测，精准解决群众急难愁盼问题。</li>
+            </ul>
+
+            <h4>2. 生态环保创新</h4>
+            <ul>
+                <li><strong>黄河流域生态保护创新</strong>：吕梁作为黄河流经区域，推动黄河流域生态保护与高质量发展，运用大数据、卫星遥感技术开展生态监测，实施水土流失治理、退耕还林还草、污水治理等工程；发展生态旅游、绿色农业，推动生态保护与经济发展融合。</li>
+                <li><strong>绿色低碳发展创新</strong>：推动工业、交通、建筑等领域绿色低碳转型，发展循环经济，推广清洁能源；建设绿色工厂、绿色园区，打造吕梁绿色低碳发展示范城市。</li>
+            </ul>
+
+            </div>
+            <div class="divider"></div>
+
+            <div id="section5" class="section">
+            <h3>五、教育与人才创新（夯实创新发展根基）</h3>
+            
+            <h4>1. 教育模式创新</h4>
+            <ul>
+                <li><strong>智慧教育建设</strong>：推动吕梁教育数字化转型，建设智慧校园、在线教育平台，运用AI技术实现个性化教学，提升教育质量；推动优质教育资源共享，缩小城乡教育差距。</li>
+                <li><strong>职业教育与产教融合创新</strong>：吕梁学院、吕梁职业技术学院等院校深化产教融合，围绕吕梁煤炭、白酒、新能源、文旅等产业，开设特色专业，培养本土实用型人才；建设现代职业教育体系，推动职业教育与产业发展深度融合。</li>
+                <li><strong>创新创业教育</strong>：在高校、中小学开展创新创业教育，建设创新创业孵化基地，培养学生创新精神与创业能力，为吕梁创新发展培育人才。</li>
+            </ul>
+
+            <h4>2. 人才引育创新</h4>
+            <ul>
+                <li><strong>人才引进政策创新</strong>：出台吕梁人才引进优惠政策，吸引高端人才、青年人才、技能人才来吕梁就业创业；建设人才公寓、人才服务平台，优化人才发展环境，留住人才。</li>
+                <li><strong>本土人才培养创新</strong>：培育本土企业家、非遗传承人、技术技能人才，开展人才培训、技能竞赛，提升本土人才素质；建立人才激励机制，激发人才创新活力。</li>
+            </ul>
+
+            </div>
+            <div class="divider"></div>
+
+            <div id="section6" class="section">
+            <h3>六、时代新风与精神文明创新（弘扬新时代吕梁精神）</h3>
+            
+            <h4>1. 新时代吕梁精神传承创新</h4>
+            <ul>
+                <li><strong>吕梁精神时代化阐释</strong>：结合新时代奋斗精神、乡村振兴、爱国主义教育，赋予吕梁精神“艰苦奋斗、顾全大局、自强不息、勇于创新”新的时代内涵，推动吕梁精神在新时代传承发扬。</li>
+                <li><strong>精神文明建设创新</strong>：开展新时代文明实践活动，创新文明宣传形式，通过短视频、直播、文艺作品等形式，弘扬社会主义核心价值观、吕梁精神，提升市民文明素质。</li>
+                <li><strong>典型榜样宣传创新</strong>：宣传吕梁新时代先进典型、英雄模范、创业先锋，通过新媒体平台讲好吕梁故事，传播吕梁正能量，引领时代新风。</li>
+            </ul>
+
+            <h4>2. 文化惠民服务创新</h4>
+            <ul>
+                <li><strong>公共文化服务数字化</strong>：建设吕梁公共文化云平台，实现线上图书馆、文化馆、博物馆服务，开展线上文化活动、文艺培训，提升公共文化服务覆盖面与效率。</li>
+                <li><strong>文化惠民活动创新</strong>：开展“送戏下乡”“非遗进社区”“红色文化进万家”等文化惠民活动，创新活动形式，结合线上线下，满足群众精神文化需求。</li>
+            </ul>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2025 吕梁精神传承计划 | 史料来源：《吕梁英雄传》、晋绥边区革命纪念馆 | 仅用于学习交流</p>
+    </footer>
+    
+    <script>
+        // 返回时代新风模块并激活对应卡片
+        function returnToNewEra(cardIndex) {
+            // 存储卡片索引到本地存储
+            localStorage.setItem('activeCard', cardIndex);
+            // 跳转到时代新风模块
+            window.location.href = 'index.html#newera';
+            return false;
+        }
+    </script>
+
+
+
+
+
+
+
+<script src="https://lf-cdn.coze.cn/obj/unpkg/flow-platform/chat-app-sdk/1.1.0-beta.0/libs/cn/index.js"></script>
+
+<script>
+  let chatClient = null;
+
+  function initChat() {
+    chatClient = new CozeWebSDK.WebChatClient({
+      config: {
+        bot_id: '7627810803755876388',
+        isIframe: false,
+        componentProps: {
+          title: '吕梁小助手'
+        },
+        auth: {
+          type: 'token',
+          token: 'pat_3RSssd47oQrXEy7uoUUplnrDIIDLNzedz380LSZzeLR2kEINLnJxpwcMdQlX4b7d',
+          onRefreshToken: function() {
+            return 'pat_3RSssd47oQrXEy7uoUUplnrDIIDLNzedz380LSZzeLR2kEINLnJxpwcMdQlX4b7d';
+          }
+        }
+      }
+    });
+  }
+
+  // 页面加载完成后自动初始化并显示智能助手
+  document.addEventListener('DOMContentLoaded', function() {
+    initChat();
+    if (chatClient) {
+      chatClient.show();  // 直接显示智能助手
+    }
+  });
+</script>
+
+
+
+
+
+
+
+
+
+</body>
+</html>
